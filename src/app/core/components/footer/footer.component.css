@@ -1,0 +1,24 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-width: 240px;
+  margin: 70px 60px;
+  gap: 25px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  color: #939393;
+  font-size: 18px;
+}
+
+.column a {
+  margin: 5px;
+  padding: 0;
+  text-decoration: none;
+  color: #939393;
+}
