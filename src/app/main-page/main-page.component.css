@@ -1,0 +1,113 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 330px) minmax(0, 2.4fr) minmax(0, 300px);
+  position: relative;
+  grid-gap: 20px;
+  max-height: 90%;
+}
+
+.suggestions {
+  padding: 0 60px;
+}
+
+.sidemenu {
+  padding: 70px 0;
+  font-size: 20px;
+}
+
+.sidemenu .menu {
+  display: flex;
+  flex-direction: column;
+}
+.sidemenu-text {
+  padding-left: 60px;
+  padding-block: 13px;
+}
+
+.sidemenu-title {
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 20px;
+  margin: 23px 0;
+  padding-block: 0;
+}
+
+.sidemenu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidemenu-links a {
+  display: flex;
+  text-decoration: none;
+  color: #555555;
+}
+
+fa-icon {
+  font-size: 25px;
+  padding-right: 5px;
+}
+
+.content-container {
+  padding-top: 60px;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: center;
+}
+.filter-item {
+  font-size: 18px;
+  margin-right: 36px;
+  border: none;
+  padding: 9px 13px;
+  background: #fccf47;
+  border-radius: 100px;
+  color: #fff;
+}
+
+.questions-list {
+  margin-top: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 10px;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  max-height: 67vh;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+  background: #acacac;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.right-side {
+  padding-top: 73px;
+}
+
+.add-topic-button {
+  color: #fff;
+  background: #1795a8;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  padding: 17px 50px;
+}

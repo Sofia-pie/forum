@@ -1,0 +1,25 @@
+<div class="question">
+	<div class="vote">
+		<button><fa-icon [icon]="faUp"></fa-icon></button>
+		<p>{{question.votes}}</p>
+		<button><fa-icon [icon]="faDown"></fa-icon></button>
+	</div>
+	<div class="question-text">
+		<h4>{{question.title}}</h4>
+		<p class="time">{{question.date | date: 'dd/MM/yyyy'}}</p>
+		<p class="details">{{question.text}}</p>
+	</div>
+	<div class="info">
+		<div class="user"><fa-icon [icon]="faUser"></fa-icon></div>
+
+		<button class="comment-button" (click)="showInput = !showInput"><span>30</span><fa-icon
+				[icon]="faComment"></fa-icon></button>
+	</div>
+</div>
+
+<ng-container *ngIf="showInput">
+	<div class="input-container">
+		<input type="text" placeholder="Enter your comment" [(ngModel)]="comment" class="comment-input">
+		<button (click)="addComment()" class="submit"><fa-icon [icon]="faRight"></fa-icon></button>
+	</div>
+</ng-container>

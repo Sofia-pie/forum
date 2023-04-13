@@ -1,1 +1,35 @@
-<app-header></app-header>
+<div class="sidemenu">
+	<div class="menu">
+		<h5 class="sidemenu-title sidemenu-text">Menu</h5>
+		<div class="sidemenu-links">
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faQuestion"></fa-icon> Questions</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faTopics"></fa-icon>Expolore Topics</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faTags">Tags</fa-icon>Tags</a>
+		</div>
+	</div>
+	<div class="personal-menu">
+		<h5 class="sidemenu-title sidemenu-text">
+			Personal navigator
+		</h5>
+		<div class="sidemenu-links">
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faPersonalQuestion"></fa-icon>My Questions</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faAnswers"></fa-icon>My Answers</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faLikes">Tags</fa-icon>My Likes</a>
+		</div>
+	</div>
+</div>
+<div class="content-container ">
+	<div class="filter-options">
+		<button class="filter-item">New</button>
+		<button class="filter-item">Trending</button>
+		<button class="filter-item">Tags</button>
+	</div>
+	<div class="questions-list scrollable">
+		<app-question-block *ngFor="let q of questions" [question]="q"></app-question-block>
+
+	</div>
+</div>
+<div class="right-side">
+	<button class="add-topic-button"><fa-icon [icon]="faAdd"></fa-icon>Start a New Topic</button>
+	<app-suggest-users></app-suggest-users>
+</div>

@@ -1,0 +1,107 @@
+:host {
+  padding: 24px 15px;
+  background: #ffffff;
+  box-shadow: -4px -4px 16px rgba(0, 0, 0, 0.06),
+    4px 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.question {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+fa-icon {
+  color: #808080;
+  font-size: 1.5rem;
+}
+
+.vote {
+  text-align: center;
+}
+
+.vote p {
+  margin-block: 5px;
+  font-size: 1.5rem;
+}
+.vote button {
+  padding: 0;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.question-text {
+  margin-left: 15px;
+}
+
+.question-text h4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.time {
+  margin-top: 5px;
+}
+
+.details {
+  color: #9e9e9e;
+  font-size: 1.25rem;
+}
+
+.info {
+  margin-left: 30px;
+}
+
+.user {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.comment-button {
+  padding: 0;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  min-width: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.comment-button span {
+  margin-right: 0.5rem;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+}
+.comment-input {
+  width: 60%;
+  height: 100%;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.submit {
+  background: #1795a8;
+  border: none;
+  border-radius: 50%;
+  padding-inline: 0.7rem;
+  height: 70%;
+  margin-left: 10px;
+}
+
+.submit fa-icon {
+  color: #fff;
+}
