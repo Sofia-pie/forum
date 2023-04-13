@@ -1,6 +1,6 @@
 :host {
   display: grid;
-  grid-template-columns: minmax(0, 330px) minmax(0, 2.4fr) minmax(0, 300px);
+  grid-template-columns: minmax(0, 320px) minmax(0, 2.5fr) minmax(0, 300px);
   position: relative;
   grid-gap: 20px;
   max-height: 90%;
@@ -49,7 +49,7 @@ fa-icon {
 }
 
 .content-container {
-  padding-top: 60px;
+  padding-top: 1.7rem;
 }
 
 .filter-options {
@@ -86,17 +86,17 @@ fa-icon {
 
 /* Track */
 .scrollable::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
 .scrollable::-webkit-scrollbar-thumb {
-  background: #acacac;
+  background: #d7d7d7;
 }
 
 /* Handle on hover */
 .scrollable::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #989898;
 }
 
 .right-side {
