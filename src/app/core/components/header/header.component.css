@@ -1,3 +1,7 @@
+:host {
+  flex: 0 1 auto;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -91,4 +95,19 @@
 }
 .hide-menu {
   display: none;
+}
+
+.sign-up {
+  margin-left: auto;
+  margin-right: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  border: none;
+  background: #24afc1;
+  border-radius: 100px;
+  padding: 1.2rem 3rem;
+  margin-block: 5rem;
+  cursor: pointer;
 }

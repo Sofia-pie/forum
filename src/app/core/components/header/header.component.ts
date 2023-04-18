@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faSearch,
   faUser,
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   faTriangle = faCaretDown;
   showMenu = false;
   search = '';
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {}
 

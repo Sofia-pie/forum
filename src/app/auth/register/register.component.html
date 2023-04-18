@@ -1,0 +1,44 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+	<div>
+		<p>Name</p>
+		<input type="text" formControlName="name">
+		<div
+			*ngIf="registerForm.get('name')!.invalid && (registerForm.get('name')!.dirty || registerForm.get('name')!.touched)">
+			<div *ngIf="registerForm.get('name')!.errors?.['required']" class="error-message">Name is required</div>
+		</div>
+	</div>
+	<div>
+		<p>Username</p>
+		<input type="text" formControlName="username">
+		<div
+			*ngIf="registerForm.get('username')!.invalid && (registerForm.get('username')!.dirty || registerForm.get('username')!.touched)">
+			<div *ngIf="registerForm.get('username')!.errors?.['required']" class="error-message">Username is required
+			</div>
+		</div>
+	</div>
+	<div>
+		<p>Email</p>
+		<input type="email" formControlName="email">
+		<div
+			*ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
+			<div *ngIf="registerForm.get('email')!.errors?.['required']" class="error-message">Email is required</div>
+			<div *ngIf="registerForm.get('email')!.errors?.['email']" class="error-message">Invalid email format</div>
+		</div>
+	</div>
+	<div>
+		<p>Password</p>
+		<input type="password" formControlName="password">
+		<div
+			*ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)">
+			<div *ngIf="registerForm.get('password')!.errors?.['required']" class="error-message">Password is required
+			</div>
+		</div>
+	</div>
+	<div>
+		<p>Bio</p>
+		<textarea cols="25" rows="10" formControlName="bio"></textarea>
+	</div>
+	<button type="submit" [disabled]="registerForm.invalid" class="submit-button">Register
+	</button>
+</form>
+<div class="img-container"><img class="image" src="../../../assets/images/image 2.png"></div>

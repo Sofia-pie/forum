@@ -1,19 +1,26 @@
 <div class="header">
-	<div class="search-bar">
-		<fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
-		<input type="text" class="search" placeholder="Пошук теми" (keyup.enter)="onEnter($event)">
-	</div>
-
-	<div class="profile">
-		<fa-icon [icon]="faUser"></fa-icon>
-		<button class="dropdown-button" (click)="onDropdownClick()">
-			<fa-icon [icon]="faTriangle"></fa-icon>
-		</button>
-		<div [ngClass]="{'hide-menu':!showMenu}" class="menu">
-			<p class="menu-item">Профіль</p>
-			<p class="menu-item">Вихід</p>
+	<ng-container *ngIf="this.router.url !='/sign-in' && this.router.url !='/sign-up'">
+		<div class="search-bar">
+			<fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+			<input type="text" class="search" placeholder="Пошук теми" (keyup.enter)="onEnter($event)">
 		</div>
-	</div>
 
+		<div class="profile">
+			<fa-icon [icon]="faUser"></fa-icon>
+			<button class="dropdown-button" (click)="onDropdownClick()">
+				<fa-icon [icon]="faTriangle"></fa-icon>
+			</button>
+			<div [ngClass]="{'hide-menu':!showMenu}" class="menu">
+				<p class="menu-item">Профіль</p>
+				<a [routerLink]="['/sign-in']" class="menu-item">Вихід</a>
+			</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="this.router.url =='/sign-in'">
+		<button class="sign-up" [routerLink]="['/sign-up']">Sign Up</button>
+	</ng-container>
+	<ng-container *ngIf=" this.router.url =='/sign-up'">
+		<button class="sign-up" [routerLink]="['/sign-in']">Sign In</button>
+	</ng-container>
 
 </div>

@@ -1,0 +1,58 @@
+:host {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: auto;
+}
+
+.img-container {
+  max-height: 100%;
+  text-align: center;
+  padding: 3rem;
+}
+
+.image {
+  max-width: 70%;
+}
+
+form {
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  gap: 20px;
+}
+
+form input {
+  background: #e3e3e3;
+  border-radius: 7.5px;
+  border: none;
+  padding: 1.25rem 0 1.25rem 0.5rem;
+  width: 100%;
+}
+
+.submit-button {
+  grid-row: 3/4;
+  background: #1795a8;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  margin-top: 2rem;
+  padding: 1rem 5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  height: min-content;
+}
+
+textarea {
+  resize: none;
+  background: #e3e3e3;
+  border-radius: 7.5px;
+  border: none;
+  padding: 1rem;
+}
+
+.error-message {
+  color: red;
+}
