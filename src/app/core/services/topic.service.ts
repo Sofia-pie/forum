@@ -43,7 +43,7 @@ export class TopicService {
     return of(this.questions);
   }
 
-  getQuestionById(id: number): Observable<Topic> {
+  getTopicById(id: number): Observable<Topic> {
     return of(this.questions.find((question) => question._id === id)!);
   }
 }
