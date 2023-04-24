@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-topic-form',
@@ -7,18 +8,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./topic-form.component.css'],
 })
 export class TopicFormComponent implements OnInit {
+  faPlus = faPlus;
+  faCheck = faCheck;
+  tagsList: string[] = ['question', 'discussion'];
   topicForm: FormGroup;
+  newTag: string;
 
-  constructor(private formBuilder: FormBuilder) {}
-
+  constructor(private fb: FormBuilder) {}
   ngOnInit(): void {
-    this.topicForm = this.formBuilder.group({
+    this.topicForm = this.fb.group({
       title: ['', Validators.required],
       content: '',
+      tags: this.fb.array(this.tagsList.map(() => false)),
     });
   }
 
+  get tags(): FormArray {
+    return this.topicForm.get('tags') as FormArray;
+  }
+
+  addTag() {
+    const tag = this.newTag.trim();
+    if (tag) {
+      this.tags.push(this.fb.control(tag));
+      this.tagsList.push(tag);
+      this.newTag = '';
+    }
+  }
+
   onSubmit() {
-    console.log(this.topicForm.value);
+    const formValue = this.topicForm.value;
+    const selectedTags = formValue.tags.filter((value: any) => value !== false);
+    const topic = {
+      title: formValue.title,
+      content: formValue.content,
+      tags: selectedTags,
+    };
+    console.log(topic);
+  }
+
+  onChange() {
+    console.log('Change');
   }
 }

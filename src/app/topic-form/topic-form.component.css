@@ -1,0 +1,83 @@
+:host {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: 1px solid #777777;
+  border-radius: 7.6793px;
+  padding: 1rem 1.8rem;
+  width: 100%;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+}
+.tag-button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  border: none;
+}
+
+.selected {
+  color: #fff;
+  background: #fccf47;
+}
+.tag-input {
+  display: flex;
+  align-items: center;
+}
+.tag-button:hover {
+  background-color: #c4c4c4;
+  border-color: #adadad;
+}
+
+.tag-field {
+  border: 1px solid #777777;
+  border-radius: 35px;
+  width: min-content;
+}
+
+.tag-input button {
+  color: #fff;
+  background: #fccf47;
+  padding: 0.3rem 1.5rem;
+}
+
+.submit-button {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  background: #24afc1;
+  border-radius: 100px;
+  padding: 1rem 5.4rem;
+}
+
+.cancel-button {
+  margin-left: 2rem;
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  background: #9f9f9f;
+  border-radius: 100px;
+  padding: 1rem 5.4rem;
+}
