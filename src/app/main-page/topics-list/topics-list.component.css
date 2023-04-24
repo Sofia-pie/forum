@@ -1,3 +1,11 @@
+.questions-list {
+  margin-top: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 10px;
+}
 .filter-options {
   display: flex;
   justify-content: center;
@@ -10,17 +18,8 @@
   background: #fccf47;
   border-radius: 100px;
   color: #fff;
+  cursor: pointer;
 }
-
-.questions-list {
-  margin-top: 23px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  padding: 10px;
-}
-
 .scrollable {
   overflow-y: scroll;
   max-height: 67vh;
