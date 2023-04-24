@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { TagsService } from '../core/services/tags.service';
+import { Tag } from '../core/models/tag';
 
 @Component({
   selector: 'app-topic-form',
@@ -10,12 +12,14 @@ import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 export class TopicFormComponent implements OnInit {
   faPlus = faPlus;
   faCheck = faCheck;
-  tagsList: string[] = ['question', 'discussion'];
+  // tagsList: string[] = ['question', 'discussion'];
   topicForm: FormGroup;
   newTag: string;
+  tagsList: string[];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private tagsService: TagsService) {}
   ngOnInit(): void {
+    this.tagsService.getTags().subscribe((t) => (this.tagsList = t));
     this.topicForm = this.fb.group({
       title: ['', Validators.required],
       content: '',
@@ -33,6 +37,7 @@ export class TopicFormComponent implements OnInit {
       this.tags.push(this.fb.control(tag));
       this.tagsList.push(tag);
       this.newTag = '';
+      this.tagsService.addTag(tag);
     }
   }
 

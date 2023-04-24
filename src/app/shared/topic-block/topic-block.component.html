@@ -1,13 +1,13 @@
 <div class="topic">
 	<div class="vote">
 		<button><fa-icon [icon]="faUp"></fa-icon></button>
-		<p>{{topic.votes}}</p>
+		<p>{{topic.upvotes}}</p>
 		<button><fa-icon [icon]="faDown"></fa-icon></button>
 	</div>
 	<div class="topic-text" [routerLink]="['/topic', topic._id]">
 		<h4>{{topic.title}}</h4>
 		<p class="time">{{topic.date | date: 'dd/MM/yyyy'}}</p>
-		<p class="details">{{topic.text}}</p>
+		<p class="details">{{topic.description}}</p>
 	</div>
 	<div class="info">
 		<div class="user"><fa-icon [icon]="faUser"></fa-icon></div>
