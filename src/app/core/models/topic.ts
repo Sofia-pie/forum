@@ -3,7 +3,7 @@ export interface Topic {
   user_id: number;
   title: string;
   content?: string;
-  created_date: Date;
+  created_date?: Date;
   tags: string[];
   upvotes: number;
 }
