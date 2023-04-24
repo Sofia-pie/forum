@@ -11,7 +11,7 @@ export class TopicService {
       _id: 1,
       user_id: 1,
       tags: ['question'],
-      upvotes: 4,
+      upvotes: 1,
       title: 'How to use Angular?',
       content:
         'I am new to Angular and want to learn it. Can anyone give me some tips?',
