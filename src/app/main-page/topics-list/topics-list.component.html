@@ -1,0 +1,9 @@
+<div class="filter-options">
+	<button class="filter-item">New</button>
+	<button class="filter-item">Trending</button>
+	<button class="filter-item">Tags</button>
+</div>
+<div class="questions-list scrollable">
+	<app-topic-block *ngFor="let t of topics" [topic]="t"></app-topic-block>
+
+</div>
