@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page.component';
 import { TopicFormComponent } from '../topic-form/topic-form.component';
 
-import { TopicPageComponent } from './topic-page/topic-page.component';
+import { TopicPageComponent } from '../topic-page/topic-page/topic-page.component';
 
 const routes: Routes = [
   // {

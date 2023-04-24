@@ -1,0 +1,9 @@
+<div class="comment-user">
+	<h5 class="username">{{comment.user_id}}</h5>
+</div>
+<p class="comment-text">{{comment.text}}</p>
+<div class="upvotes">
+	<fa-icon [icon]="faUp" (click)="onUpvoteClick()"></fa-icon>
+	<span>{{comment.upvotes}}</span>
+	<fa-icon [icon]="faDown" (click)="onDownvoteClick()"></fa-icon>
+</div>

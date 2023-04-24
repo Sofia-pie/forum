@@ -23,10 +23,55 @@ export class CommentsService {
       created_date: new Date(),
       upvotes: 0,
     },
+    {
+      _id: 2,
+      user_id: 2,
+      topic_id: 1,
+      text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      created_date: new Date(),
+      upvotes: 0,
+    },
+    {
+      _id: 2,
+      user_id: 2,
+      topic_id: 1,
+      text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      created_date: new Date(),
+      upvotes: 0,
+    },
+    {
+      _id: 2,
+      user_id: 2,
+      topic_id: 1,
+      text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      created_date: new Date(),
+      upvotes: 0,
+    },
+    {
+      _id: 2,
+      user_id: 2,
+      topic_id: 1,
+      text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      created_date: new Date(),
+      upvotes: 0,
+    },
   ];
 
   constructor() {}
 
+  updateCommentUpvotes(
+    commentId: number,
+    newUpvotes: number
+  ): Observable<Comment> {
+    const commentIndex = this.comments.findIndex((c) => c._id === commentId);
+    if (commentIndex === -1) {
+      throw new Error('Comment not found');
+    }
+    const comment = this.comments[commentIndex];
+    const updatedComment = { ...comment, upvotes: newUpvotes };
+    this.comments[commentIndex] = updatedComment;
+    return of(updatedComment);
+  }
   getCommentsByTopicId(topicId: string | number): Observable<Comment[]> {
     const comments = this.comments.filter(
       (c) => c.topic_id === Number(topicId)

@@ -16,22 +16,15 @@
 		</div>
 	</div>
 
-	<div class="comments-container">
-		<div class="comment" *ngFor="let comment of comments">
-			<div class="comment-user">
-				<h5 class="username">{{comment.user_id}}</h5>
-			</div>
-			<p class="comment-text">{{comment.text}}</p>
-			<div class="upvotes">
-				<fa-icon [icon]="faUp"></fa-icon>
-				<span>{{comment.upvotes}}</span>
-				<fa-icon [icon]="faDown"></fa-icon>
-			</div>
-		</div>
-	</div>
+	<div class="comments-container scrollable">
 
+		<app-comment *ngFor="let comment of comments" [comment]="comment" (onUpvote)="onCommentUpvote($event)"
+			(onDownvote)="onCommentDownvote($event)"></app-comment>
+
+
+
+	</div>
 	<div class="input-container">
 		<input type="text" placeholder="Enter your comment" [(ngModel)]="comment" class="comment-input">
 		<button (click)="addComment()" class="submit"><fa-icon [icon]="faRight"></fa-icon></button>
 	</div>
-</div>

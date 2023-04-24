@@ -44,4 +44,16 @@ export class TopicPageComponent implements OnInit {
   addComment() {
     console.log(this.comment);
   }
+
+  onCommentUpvote(comment: any) {
+    this.commentsService
+      .updateCommentUpvotes(comment._id, comment.upvotes)
+      .subscribe();
+  }
+
+  onCommentDownvote(comment: any) {
+    this.commentsService
+      .updateCommentUpvotes(comment._id, comment.upvotes)
+      .subscribe((c) => console.log(this.comments));
+  }
 }

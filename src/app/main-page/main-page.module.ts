@@ -7,17 +7,13 @@ import { SuggestUsersComponent } from './suggest-users/suggest-users.component';
 import { RouterModule } from '@angular/router';
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { TopicFormModule } from '../topic-form/topic-form.module';
-import { TopicPageComponent } from './topic-page/topic-page.component';
+
 import { FormsModule } from '@angular/forms';
 import { TopicsListComponent } from './topics-list/topics-list.component';
+import { TopicPageModule } from '../topic-page/topic-page.module';
 
 @NgModule({
-  declarations: [
-    MainPageComponent,
-    SuggestUsersComponent,
-    TopicPageComponent,
-    TopicsListComponent,
-  ],
+  declarations: [MainPageComponent, SuggestUsersComponent, TopicsListComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
@@ -26,6 +22,7 @@ import { TopicsListComponent } from './topics-list/topics-list.component';
     RouterModule,
     FormsModule,
     TopicFormModule,
+    TopicPageModule,
   ],
   exports: [MainPageComponent],
 })

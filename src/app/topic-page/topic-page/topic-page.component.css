@@ -1,5 +1,6 @@
 :host {
   flex: 1 1 auto;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(0, 250px) minmax(0, 2.5fr) minmax(0, 250px);
   position: relative;
@@ -8,7 +9,13 @@
 .container {
   grid-column: 2/3;
   display: grid;
-  grid-template-rows: 1fr 2fr 0.6fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.scrollable {
+  overflow-y: auto;
+  height: 50vh;
 }
 .topic {
   display: flex;
@@ -90,7 +97,10 @@ fa-icon {
   align-items: center;
   height: 3.5rem;
   grid-row: 3/4;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
+
 .comment-input {
   width: 90%;
   height: 100%;
@@ -112,14 +122,21 @@ fa-icon {
   color: #fff;
 }
 
-.upvotes {
-  width: fit-content;
-  margin-left: auto;
+.scrollable::-webkit-scrollbar {
+  width: 5px;
 }
 
-.comment-text {
-  margin-left: 0.6rem;
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
 }
-.upvotes fa-icon {
-  margin-inline: 0.5rem;
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+  background: #d7d7d7;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #989898;
 }

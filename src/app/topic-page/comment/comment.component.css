@@ -1,0 +1,12 @@
+.upvotes {
+  width: fit-content;
+  margin-left: auto;
+}
+
+.comment-text {
+  margin-left: 0.6rem;
+}
+.upvotes fa-icon {
+  margin-inline: 0.5rem;
+  cursor: pointer;
+}
