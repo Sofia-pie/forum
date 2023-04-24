@@ -19,17 +19,10 @@
 	</div>
 </div>
 <div class="content-container ">
-	<div class="filter-options">
-		<button class="filter-item">New</button>
-		<button class="filter-item">Trending</button>
-		<button class="filter-item">Tags</button>
-	</div>
-	<div class="questions-list scrollable">
-		<app-question-block *ngFor="let q of questions" [question]="q"></app-question-block>
-
-	</div>
+	<app-topics-list [topics]="questions"></app-topics-list>
 </div>
 <div class="right-side">
-	<button class="add-topic-button"><fa-icon [icon]="faAdd"></fa-icon>Start a New Topic</button>
+	<button class="add-topic-button" [routerLink]="['/new-topic']"><fa-icon [icon]="faAdd"></fa-icon>Start a New
+		Topic</button>
 	<app-suggest-users></app-suggest-users>
 </div>

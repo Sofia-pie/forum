@@ -53,53 +53,6 @@ fa-icon {
   padding-top: 1.7rem;
 }
 
-.filter-options {
-  display: flex;
-  justify-content: center;
-}
-.filter-item {
-  font-size: 18px;
-  margin-right: 36px;
-  border: none;
-  padding: 9px 13px;
-  background: #fccf47;
-  border-radius: 100px;
-  color: #fff;
-}
-
-.questions-list {
-  margin-top: 23px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  padding: 10px;
-}
-
-.scrollable {
-  overflow-y: scroll;
-  max-height: 67vh;
-}
-
-.scrollable::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-.scrollable::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-.scrollable::-webkit-scrollbar-thumb {
-  background: #d7d7d7;
-}
-
-/* Handle on hover */
-.scrollable::-webkit-scrollbar-thumb:hover {
-  background: #989898;
-}
-
 .right-side {
   padding-top: 73px;
 }

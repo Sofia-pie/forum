@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { TopicFormComponent } from './topic-form/topic-form.component';
 
 const routes: Routes = [
   // {
@@ -13,6 +14,11 @@ const routes: Routes = [
   // },
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'main',
+  },
+  {
+    path: 'main',
     pathMatch: 'full',
     loadChildren: () =>
       import('./main-page/main-page.module').then((m) => m.MainPageModule),
