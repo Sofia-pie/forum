@@ -5,7 +5,7 @@
     4px 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-.question {
+.topic {
   display: flex;
   align-items: center;
 
@@ -32,11 +32,11 @@ fa-icon {
   cursor: pointer;
 }
 
-.question-text {
+.topic-text {
   margin-left: 15px;
 }
 
-.question-text h4 {
+.topic-text h4 {
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 0;

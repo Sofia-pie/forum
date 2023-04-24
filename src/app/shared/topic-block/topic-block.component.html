@@ -1,13 +1,13 @@
-<div class="question">
+<div class="topic">
 	<div class="vote">
 		<button><fa-icon [icon]="faUp"></fa-icon></button>
-		<p>{{question.votes}}</p>
+		<p>{{topic.votes}}</p>
 		<button><fa-icon [icon]="faDown"></fa-icon></button>
 	</div>
-	<div class="question-text">
-		<h4>{{question.title}}</h4>
-		<p class="time">{{question.date | date: 'dd/MM/yyyy'}}</p>
-		<p class="details">{{question.text}}</p>
+	<div class="topic-text" [routerLink]="['/topic', topic._id]">
+		<h4>{{topic.title}}</h4>
+		<p class="time">{{topic.date | date: 'dd/MM/yyyy'}}</p>
+		<p class="details">{{topic.text}}</p>
 	</div>
 	<div class="info">
 		<div class="user"><fa-icon [icon]="faUser"></fa-icon></div>

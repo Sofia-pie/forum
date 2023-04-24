@@ -8,11 +8,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-question-block',
-  templateUrl: './question-block.component.html',
-  styleUrls: ['./question-block.component.css'],
+  selector: 'app-topic-block',
+  templateUrl: './topic-block.component.html',
+  styleUrls: ['./topic-block.component.css'],
 })
-export class QuestionBlockComponent implements OnInit {
+export class TopicBlockComponent implements OnInit {
   faUp = faArrowUp;
   faDown = faArrowDown;
   faComment = faComment;
@@ -23,7 +23,7 @@ export class QuestionBlockComponent implements OnInit {
 
   comment: string;
 
-  @Input() question: any;
+  @Input() topic: any;
 
   constructor() {}
 
