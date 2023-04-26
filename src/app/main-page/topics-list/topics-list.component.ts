@@ -19,4 +19,13 @@ export class TopicsListComponent implements OnInit {
   sortByUpvotes(): void {
     this.topics.sort((a: Topic, b: Topic) => b.upvotes - a.upvotes);
   }
+
+  sortByDate(): void {
+    this.topics.sort((a: Topic, b: Topic) => {
+      return (
+        new Date(b.created_date!).getTime() -
+        new Date(a.created_date!).getTime()
+      );
+    });
+  }
 }

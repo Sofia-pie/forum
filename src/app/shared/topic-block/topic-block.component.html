@@ -6,8 +6,11 @@
 	</div>
 	<div class="topic-text" [routerLink]="['/topic', topic._id]">
 		<h4>{{topic.title}}</h4>
-		<p class="time">{{topic.date | date: 'dd/MM/yyyy'}}</p>
-		<p class="details">{{topic.description}}</p>
+		<p class="time">{{topic.created_date | date: 'dd/MM/yyyy'}}</p>
+		<p class="details">{{topic.content}}</p>
+		<div class="tags">
+			<span class="tag" *ngFor=" let tag of topic.tags">{{tag}}</span>
+		</div>
 	</div>
 	<div class="info">
 		<div class="user"><fa-icon [icon]="faUser"></fa-icon></div>

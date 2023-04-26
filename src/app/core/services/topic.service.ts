@@ -15,6 +15,7 @@ export class TopicService {
       title: 'How to use Angular?',
       content:
         'I am new to Angular and want to learn it. Can anyone give me some tips?',
+      created_date: new Date('12/03/2023'),
     },
     {
       _id: 2,
@@ -24,6 +25,7 @@ export class TopicService {
       title: 'What is the best way to learn programming?',
       content:
         "I want to become a programmer, but I don't know where to start. What should I do?",
+      created_date: new Date('03/03/2023'),
     },
     {
       _id: 3,
@@ -34,6 +36,7 @@ export class TopicService {
       title: 'How to become a successful software engineer?',
       content:
         'What are the key skills and traits that I need to become a successful software engineer?',
+      created_date: new Date('07/03/2023'),
     },
   ];
 
