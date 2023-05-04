@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   faArrowDown,
   faArrowRight,
@@ -6,6 +6,7 @@ import {
   faComment,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Topic } from '../../core/models/topic';
 
 @Component({
   selector: 'app-topic-block',
@@ -23,7 +24,10 @@ export class TopicBlockComponent implements OnInit {
 
   comment: string;
 
-  @Input() topic: any;
+  @Input() topic: Topic;
+  @Input() showCommentButton: boolean;
+  @Output() onUpvote = new EventEmitter();
+  @Output() onDownvote = new EventEmitter();
 
   constructor() {}
 
@@ -31,5 +35,15 @@ export class TopicBlockComponent implements OnInit {
 
   addComment() {
     console.log(this.comment);
+  }
+
+  onUpvoteClick() {
+    const upvotes = this.topic.upvotes++;
+    // this.comment.upvotes = upvotes;
+    this.onUpvote.emit({ _id: this.topic._id, upvotes: upvotes });
+  }
+  onDownvoteClick() {
+    const upvotes = this.topic.upvotes--;
+    this.onDownvote.emit({ _id: this.topic._id, upvotes: upvotes });
   }
 }

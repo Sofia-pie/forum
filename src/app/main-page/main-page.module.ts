@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './main-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../shared/shared.module';
-import { SuggestUsersComponent } from './suggest-users/suggest-users.component';
+
 import { RouterModule } from '@angular/router';
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { TopicFormModule } from '../topic-form/topic-form.module';
@@ -13,7 +13,7 @@ import { TopicsListComponent } from './topics-list/topics-list.component';
 import { TopicPageModule } from '../topic-page/topic-page.module';
 
 @NgModule({
-  declarations: [MainPageComponent, SuggestUsersComponent, TopicsListComponent],
+  declarations: [MainPageComponent, TopicsListComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

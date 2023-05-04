@@ -23,12 +23,6 @@ export class CommentComponent implements OnInit {
     const upvotes = this.comment.upvotes++;
     // this.comment.upvotes = upvotes;
     this.onUpvote.emit({ _id: this.comment._id, upvotes: upvotes });
-
-    // this.commentsService
-    //   .updateCommentUpvotes(this.comment._id, upvotes)
-    //   .subscribe((updatedComment) => {
-    //     this.comment = updatedComment;
-    //   });
   }
   onDownvoteClick() {
     const upvotes = this.comment.upvotes--;
