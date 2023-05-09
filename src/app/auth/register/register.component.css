@@ -1,25 +1,26 @@
 :host {
   flex: 1 1 auto;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1.5fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto; */
+  display: flex;
+  overflow: auto;
 }
 
 .img-container {
-  max-height: 100%;
-  text-align: center;
-  padding: 3rem;
-}
-
-.image {
-  max-width: 70%;
+  flex-basis: 50%;
+  margin-block: 2rem;
+  background-image: url(src/assets/images/image2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 form {
   margin-left: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -32,7 +33,9 @@ form input {
 }
 
 .submit-button {
-  grid-row: 3/4;
+  align-self: flex-end;
+  justify-self: start;
+  margin-bottom: 2rem;
   background: #1795a8;
   border-radius: 10px;
   color: #fff;

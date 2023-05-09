@@ -1,6 +1,6 @@
 export interface Topic {
-  _id: number;
-  user_id: number;
+  _id: string;
+  user_id: string;
   title: string;
   content?: string;
   created_date?: Date;

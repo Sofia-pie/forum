@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
 export class TopicService {
   private questions: Topic[] = [
     {
-      _id: 1,
-      user_id: 1,
+      _id: '1',
+      user_id: '1',
       tags: ['question'],
       upvotes: 1,
       title: 'How to use Angular?',
@@ -18,8 +18,8 @@ export class TopicService {
       created_date: new Date('12/03/2023'),
     },
     {
-      _id: 2,
-      user_id: 2,
+      _id: '2',
+      user_id: '2',
       tags: ['question'],
       upvotes: 4,
       title: 'What is the best way to learn programming?',
@@ -28,8 +28,8 @@ export class TopicService {
       created_date: new Date('03/03/2023'),
     },
     {
-      _id: 3,
-      user_id: 1,
+      _id: '3',
+      user_id: '1',
       tags: ['question'],
       upvotes: 2,
 
@@ -46,7 +46,7 @@ export class TopicService {
     return of(this.questions);
   }
 
-  getTopicById(id: number): Observable<Topic> {
+  getTopicById(id: string): Observable<Topic> {
     return of(this.questions.find((question) => question._id === id)!);
   }
 }
