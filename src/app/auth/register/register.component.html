@@ -30,10 +30,11 @@
 	<div>
 		<p>Фото</p>
 		<input type="file" accept="image/png, image/jpeg" (change)="uploadFile($event)">
+		<div class="preview" *ngIf="preview && preview !== null">
+			<img [src]="preview" [alt]="">
+		</div>
 	</div>
-	<div class="preview" *ngIf="preview && preview !== null">
-		<img [src]="preview" [alt]="">
-	</div>
+
 
 	<button type="submit" [disabled]="registerForm.invalid" class="submit-button">Register
 	</button>

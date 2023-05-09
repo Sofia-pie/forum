@@ -66,4 +66,10 @@ textarea {
 
 .preview {
   max-height: 100px;
+  width: 150px;
+}
+
+.preview img {
+  max-width: 100%;
+  height: auto;
 }
