@@ -12,7 +12,7 @@
 			</button>
 			<div [ngClass]="{'hide-menu':!showMenu}" class="menu">
 				<p class="menu-item">Профіль</p>
-				<a [routerLink]="['/sign-in']" class="menu-item">Вихід</a>
+				<a (click)="onLogout()" class="menu-item">Вихід</a>
 			</div>
 		</div>
 	</ng-container>

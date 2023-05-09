@@ -5,6 +5,7 @@ import {
   faUser,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   faTriangle = faCaretDown;
   showMenu = false;
   search = '';
-  constructor(public router: Router) {}
+  constructor(public router: Router, private userService: UserService) {}
 
   ngOnInit(): void {}
 
@@ -28,5 +29,9 @@ export class HeaderComponent implements OnInit {
 
   onEnter($event: any) {
     console.log($event.target.value);
+  }
+
+  onLogout() {
+    this.userService.logout();
   }
 }
