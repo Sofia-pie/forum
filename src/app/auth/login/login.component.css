@@ -1,18 +1,27 @@
 :host {
   flex: 1 1 auto;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto; */
+  display: flex;
+  overflow: auto;
 }
 
 .img-container {
-  max-height: 100%;
-  text-align: center;
-  padding: 3rem;
+  flex-basis: 50%;
+  margin-block: 2rem;
+  background-image: url("src/assets/images/image 2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.image {
-  max-width: 70%;
+form {
+  margin-left: 20px;
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 form {

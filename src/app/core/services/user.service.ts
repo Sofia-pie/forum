@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { Observable, of } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -19,5 +19,34 @@ export class UserService {
       formData.append(i, data[i]);
     }
     return this.http.post(`${this.baseUrl}/auth/register`, formData);
+  }
+
+  loginUser(email: string, password: string): Observable<any> {
+    return this.http
+      .post<any>(`${this.baseUrl}/auth/login`, { email, password })
+      .pipe(
+        tap((res: any) => {
+          localStorage.setItem('access_token', res.jwt_token);
+        })
+      );
+  }
+
+  get token(): string | undefined {
+    if (localStorage.getItem('access_token')) {
+      return localStorage.getItem('access_token')!;
+    }
+    return;
+  }
+
+  logout() {
+    let removeToken = localStorage.removeItem('access_token');
+    if (removeToken == null) {
+      this.router.navigate(['sign-up']);
+    }
+  }
+
+  get isLoggedIn(): boolean {
+    let authToken = localStorage.getItem('access_token');
+    return authToken !== null ? true : false;
   }
 }
