@@ -10,7 +10,7 @@
 .img-container {
   flex-basis: 50%;
   margin-block: 2rem;
-  background-image: url(src/assets/images/image2.png);
+  background-image: url("src/assets/images/image 2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -48,6 +48,10 @@ form input {
   height: min-content;
 }
 
+.submit-button:disabled {
+  background-color: grey;
+}
+
 textarea {
   resize: none;
   background: #e3e3e3;
@@ -56,6 +60,10 @@ textarea {
   padding: 1rem;
 }
 
-.error-message {
-  color: red;
+.is-invalid {
+  border: 1px solid red;
+}
+
+.preview {
+  max-height: 100px;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../core/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,23 +10,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  preview: string;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: [''],
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       bio: ['', Validators.maxLength(400)],
+      profilePicture: [null],
     });
+  }
+
+  isInvalid(controlName: string): boolean {
+    const control = this.registerForm.controls[controlName];
+    return control.touched && control.invalid;
+  }
+
+  uploadFile(event: any) {
+    const file = (event?.target as HTMLInputElement)?.files?.[0];
+    this.registerForm.patchValue({
+      profilePicture: file,
+    });
+    this.registerForm.get('profilePicture')?.updateValueAndValidity();
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    };
+    reader.readAsDataURL(file!);
   }
 
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }
-    console.log(this.registerForm.value);
+    this.userService
+      .registerUser(this.registerForm.value)
+      .subscribe(() => this.router.navigate(['/sign-in']));
   }
 }

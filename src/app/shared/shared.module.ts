@@ -5,10 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TopicBlockComponent } from './topic-block/topic-block.component';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
-  declarations: [TopicBlockComponent],
+  declarations: [TopicBlockComponent, UploadImageComponent],
   imports: [CommonModule, FontAwesomeModule, FormsModule, RouterLink],
-  exports: [TopicBlockComponent],
+  exports: [TopicBlockComponent, UploadImageComponent],
 })
 export class SharedModule {}
