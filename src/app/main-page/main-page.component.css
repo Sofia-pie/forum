@@ -1,7 +1,7 @@
 :host {
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: minmax(0, 320px) minmax(0, 2.5fr) minmax(0, 300px);
+  grid-template-columns: minmax(0, 300px) auto minmax(0, 300px);
   position: relative;
   grid-gap: 20px;
   max-height: 90%;

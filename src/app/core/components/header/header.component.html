@@ -4,9 +4,12 @@
 			<fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
 			<input type="text" class="search" placeholder="Пошук теми" (keyup.enter)="onEnter($event)">
 		</div>
-
-		<div class="profile">
-			<fa-icon [icon]="faUser"></fa-icon>
+		<ng-container *ngIf="!userService.token">
+			<button class="sign-up" [routerLink]="['/sign-in']">Вхід</button>
+		</ng-container>
+		<div class="profile" *ngIf="userService.token">
+			<!-- <fa-icon [icon]="faUser"></fa-icon> -->
+			<div class="user-img"><img [src]="user.profilePicture" alt=""></div>
 			<button class="dropdown-button" (click)="onDropdownClick()">
 				<fa-icon [icon]="faTriangle"></fa-icon>
 			</button>

@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  public userId: string | null = null;
+  private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private baseUrl = `${environment.apiUrl}`;
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient, public router: Router, private jwtHelper: JwtHelperService,) {}
 
   registerUser(data: any): Observable<any> {
     let formData: any = new FormData();
@@ -27,6 +30,7 @@ export class UserService {
       .pipe(
         tap((res: any) => {
           localStorage.setItem('access_token', res.jwt_token);
+          this.userId = res._id;
         })
       );
   }
@@ -38,8 +42,25 @@ export class UserService {
     return;
   }
 
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/user/${id}`, {
+      headers: this.headers,
+    });
+  }
+  getCurrentUser() {
+    const jwtToken = this.token!;
+    const decodedToken = this.jwtHelper.decodeToken(jwtToken);
+    const id = decodedToken.user_id;
+    let api = `${this.baseUrl}/user/${id}`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      tap((res: any) => {
+        console.log(res);
+      })
+    );
+  }
   logout() {
     let removeToken = localStorage.removeItem('access_token');
+    this.userId = null;
     if (removeToken == null) {
       this.router.navigate(['sign-in']);
     }
