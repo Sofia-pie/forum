@@ -33,12 +33,12 @@ export class TopicPageComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.topicService.getTopicById(id!).subscribe((topic) => {
-      this.topic = topic;
-    });
-    this.commentsService
-      .getCommentsByTopicId(id!)
-      .subscribe((c) => (this.comments = c));
+    // this.topicService.getTopicById(id!).subscribe((topic) => {
+    //   this.topic = topic;
+    // });
+    // this.commentsService
+    //   .getCommentsByTopicId(id!)
+    //   .subscribe((c) => (this.comments = c));
   }
 
   addComment() {

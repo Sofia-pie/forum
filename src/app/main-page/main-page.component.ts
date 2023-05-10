@@ -30,6 +30,6 @@ export class MainPageComponent implements OnInit {
   constructor(private topicService: TopicService) {}
 
   ngOnInit(): void {
-    this.topicService.geTopics().subscribe((t) => (this.topics = t));
+    // this.topicService.geTopics().subscribe((t) => (this.topics = t));
   }
 }

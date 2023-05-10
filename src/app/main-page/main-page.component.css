@@ -51,6 +51,8 @@ fa-icon {
 
 .content-container {
   padding-top: 1.7rem;
+  height: 100%;
+ 
 }
 
 .right-side {
@@ -58,6 +60,7 @@ fa-icon {
 }
 
 .add-topic-button {
+  cursor: pointer;
   color: #fff;
   background: #1795a8;
   border-radius: 5px;

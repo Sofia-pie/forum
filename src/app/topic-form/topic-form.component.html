@@ -15,12 +15,14 @@
 				<fa-icon *ngIf="!tag.value" [icon]="faPlus"></fa-icon>
 				<fa-icon *ngIf="tag.value" [icon]="faCheck"></fa-icon>
 				{{ this.tagsList[i] }}
-
 			</label>
 		</div>
 		<div class="tag-input">
 			<input type="text" [(ngModel)]="newTag" [ngModelOptions]="{standalone: true}" placeholder="Add new tag"
-				class="tag-button tag-field">
+				class="tag-button tag-field" (input)="onInputChange()">
+				<ul *ngIf="showDropdown" class="dropdown">
+					<li *ngFor="let suggestion of filteredSuggestions" (click)="onSelectSuggestion(suggestion)">{{suggestion}}</li>
+				  </ul>
 			<button type="button" (click)="addTag()" class="tag-field">Add Tag</button>
 		</div>
 	</div>

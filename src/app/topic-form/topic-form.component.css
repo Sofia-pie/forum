@@ -15,16 +15,14 @@ input {
 .tags {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
+
 .tag-button {
   display: inline-block;
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: .6rem 1rem;
   font-weight: 400;
-  line-height: 1.42857143;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -38,8 +36,28 @@ input {
 }
 .tag-input {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  position: relative;
+  gap: 2rem;
 }
+
+.dropdown{
+  position: absolute;
+  background-color: white;
+  height: fit-content;
+  top: 1.5rem;
+  left: 1rem;
+  border: 1px solid #adadad;
+  text-align: center;
+  list-style: none;
+  padding: 0.3rem;
+ 
+}
+.dropdown li{
+padding-block: .4rem;
+border-bottom: 1px solid #adadad;
+}
+
 .tag-button:hover {
   background-color: #c4c4c4;
   border-color: #adadad;
@@ -48,13 +66,14 @@ input {
 .tag-field {
   border: 1px solid #777777;
   border-radius: 35px;
-  width: min-content;
+  width: max-content;
+
 }
 
 .tag-input button {
   color: #fff;
   background: #fccf47;
-  padding: 0.3rem 1.5rem;
+  padding-inline: 1rem;
 }
 
 .submit-button {

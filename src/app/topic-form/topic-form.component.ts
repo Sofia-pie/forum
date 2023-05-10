@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TagsService } from '../core/services/tags.service';
 import { Tag } from '../core/models/tag';
+import { TopicService } from '../core/services/topic.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topic-form',
@@ -12,18 +14,21 @@ import { Tag } from '../core/models/tag';
 export class TopicFormComponent implements OnInit {
   faPlus = faPlus;
   faCheck = faCheck;
-  // tagsList: string[] = ['question', 'discussion'];
   topicForm: FormGroup;
   newTag: string;
-  tagsList: string[];
+  suggest: string[];
+  tagsList: string[]=[];
+  showDropdown = false;
+  filteredSuggestions: string[] = [];
+ 
 
-  constructor(private fb: FormBuilder, private tagsService: TagsService) {}
+  constructor(private fb: FormBuilder, private tagsService: TagsService, private topicService:TopicService, private router: Router) {}
   ngOnInit(): void {
-    this.tagsService.getTags().subscribe((t) => (this.tagsList = t));
+    this.tagsService.getTags().subscribe((t) => (this.suggest = t));
     this.topicForm = this.fb.group({
       title: ['', Validators.required],
       content: '',
-      tags: this.fb.array(this.tagsList.map(() => false)),
+      tags: this.fb.array([]),
     });
   }
 
@@ -37,8 +42,18 @@ export class TopicFormComponent implements OnInit {
       this.tags.push(this.fb.control(tag));
       this.tagsList.push(tag);
       this.newTag = '';
-      this.tagsService.addTag(tag);
     }
+  }
+
+  onInputChange() {
+    this.showDropdown = true;
+    console.log(this.newTag);
+    this.filteredSuggestions = this.suggest.filter(tag => tag.includes(this.newTag));
+  }
+
+  onSelectSuggestion(suggestion: string) {
+    this.newTag = suggestion;
+    this.showDropdown = false;
   }
 
   onSubmit() {
@@ -49,10 +64,13 @@ export class TopicFormComponent implements OnInit {
       content: formValue.content,
       tags: selectedTags,
     };
-    console.log(topic);
+    this.topicService.addTopic(topic).subscribe((res)=>{
+      console.log(topic);
+      this.router.navigate(['/main'])
+
+    })
+ 
   }
 
-  onChange() {
-    console.log('Change');
-  }
+  
 }

@@ -5,23 +5,15 @@ import { MainPageComponent } from './main-page.component';
 import { TopicFormComponent } from '../topic-form/topic-form.component';
 
 import { TopicPageComponent } from '../topic-page/topic-page/topic-page.component';
+import { AuthGuardService } from '../core/guards/auth-guard.service';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: MainPageComponent,
-  //   pathMatch: 'full',
-  // },
-  // {
-  //   path: '',
-  //   component: QuestionsListComponent,
-  //   pathMatch: 'full',
-  // },
-  // { path: 'new-topic', component: TopicFormComponent, outlet: 'main-page' },
+  
   {
     path: '',
     component: MainPageComponent,
     pathMatch: 'full',
+   
   },
   {
     path: 'topic/:id',
@@ -29,6 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'new-topic',
+    canActivate:[AuthGuardService],
     component: TopicFormComponent,
   },
 ];
