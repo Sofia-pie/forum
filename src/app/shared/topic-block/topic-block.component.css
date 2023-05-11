@@ -32,6 +32,14 @@ fa-icon {
   cursor: pointer;
 }
 
+.is-upvoted{
+  color: green;
+}
+
+.is-downvoted{
+color: red;
+}
+
 .topic-text {
   margin-left: 15px;
 }
@@ -50,6 +58,10 @@ fa-icon {
   color: #9e9e9e;
   font-size: 1.25rem;
 }
+.tags{
+  display: flex;
+  gap: 1rem;
+}
 .tag {
   border: 1px solid #1795a8;
   border-radius: 10px;
@@ -64,7 +76,20 @@ fa-icon {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+
+.user-img{
+   height: 40px;
+}
+
+.user-img img{
+  width: 100%;
+  height: 100%;
+}
+
 
 .comment-button {
   padding: 0;
@@ -85,6 +110,7 @@ fa-icon {
 }
 
 .input-container {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,6 +123,7 @@ fa-icon {
   background: #f5f5f5;
   border-radius: 8px;
 }
+
 
 .submit {
   background: #1795a8;

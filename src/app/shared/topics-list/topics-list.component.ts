@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TagsService } from '../../core/services/tags.service';
 import { Tag } from '../../core/models/tag';
 import { Topic } from '../../core/models/topic';
+import { TopicService } from '../../core/services/topic.service';
 
 @Component({
   selector: 'app-topics-list',
@@ -10,22 +11,20 @@ import { Topic } from '../../core/models/topic';
 })
 export class TopicsListComponent implements OnInit {
   @Input() topics: any;
-  tags: string[];
-  constructor(private tagsService: TagsService) {}
+  
+  constructor(private topicService: TopicService) {}
 
   ngOnInit(): void {
-    this.tagsService.getTags().subscribe((t) => (this.tags = t));
+   
   }
-  sortByUpvotes(): void {
-    this.topics.sort((a: Topic, b: Topic) => b.upvotes - a.upvotes);
+ 
+  upvoteTopic({id, upvote}:any){
+      this.topicService.upvoteTopic(id,upvote).subscribe();
+
   }
 
-  sortByDate(): void {
-    this.topics.sort((a: Topic, b: Topic) => {
-      return (
-        new Date(b.created_date!).getTime() -
-        new Date(a.created_date!).getTime()
-      );
-    });
+  downvoteTopic({id,downvote}:any){
+    this.topicService.downvoteTopic(id,downvote).subscribe();
+    
   }
 }

@@ -9,11 +9,12 @@ import { MainPageRoutingModule } from './main-page-routing.module';
 import { TopicFormModule } from '../topic-form/topic-form.module';
 
 import { FormsModule } from '@angular/forms';
-import { TopicsListComponent } from './topics-list/topics-list.component';
+
 import { TopicPageModule } from '../topic-page/topic-page.module';
+import { TopicsMainComponent } from './topics-main/topics-main.component';
 
 @NgModule({
-  declarations: [MainPageComponent, TopicsListComponent],
+  declarations: [MainPageComponent, TopicsMainComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

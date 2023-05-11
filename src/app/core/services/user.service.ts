@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserService {
-  public userId: string | null = null;
+
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private baseUrl = `${environment.apiUrl}`;
-  constructor(private http: HttpClient, public router: Router, private jwtHelper: JwtHelperService,) {}
+  constructor(private http: HttpClient, public router: Router, private jwtHelper: JwtHelperService) {}
 
   registerUser(data: any): Observable<any> {
     let formData: any = new FormData();
@@ -30,7 +30,7 @@ export class UserService {
       .pipe(
         tap((res: any) => {
           localStorage.setItem('access_token', res.jwt_token);
-          this.userId = res._id;
+        
         })
       );
   }
@@ -58,14 +58,20 @@ export class UserService {
       })
     );
   }
+
   logout() {
     let removeToken = localStorage.removeItem('access_token');
-    this.userId = null;
+ 
     if (removeToken == null) {
       this.router.navigate(['sign-in']);
     }
   }
 
+  get userId():string{
+  const jwtToken = this.token!;
+    const decodedToken = this.jwtHelper.decodeToken(jwtToken);
+    return decodedToken.user_id;
+  }
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return authToken !== null ? true : false;

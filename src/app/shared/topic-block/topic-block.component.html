@@ -1,22 +1,24 @@
-<div class="topic">
+<div class="topic" [routerLink]="['/topic', topic._id]">
 	<div class="vote">
-		<button (click)="onUpvoteClick()"><fa-icon [icon]="faUp"></fa-icon></button>
+		<button (click)="onUpvoteClick()"><fa-icon [icon]="faUp"[ngClass]="{'is-upvoted': isUpvoted}"></fa-icon></button>
 		<p>{{topic.upvotes}}</p>
-		<button><fa-icon [icon]="faDown"></fa-icon></button>
+		<button (click)="onDownvoteClick()"><fa-icon [icon]="faDown" [ngClass]="{'is-downvoted': isDownvoted}"></fa-icon></button>
 	</div>
 	<div class="topic-text" [routerLink]="['/topic', topic._id]">
 		<h4>{{topic.title}}</h4>
 		<p class="time">{{topic.created_date | date: 'dd/MM/yyyy'}}</p>
 		<p class="details">{{topic.content}}</p>
 		<div class="tags">
-			<span class="tag" *ngFor=" let tag of topic.tags">{{tag}}</span>
+			<span class="tag" *ngFor=" let tag of topic.tags">{{tag.name}}</span>
 		</div>
 	</div>
 	<div class="info">
-		<div class="user"><fa-icon [icon]="faUser"></fa-icon></div>
-
+		<div class="user">
+			<span>{{topic.user_id.username}}</span>
+			<div class="user-img"><img [src]="url+'/'+topic.user_id.profilePicture" alt=""></div>
+		</div>
 		<button class="comment-button" *ngIf="showCommentButton"
-			(click)="showInput = !showInput"><span>30</span><fa-icon [icon]="faComment"></fa-icon></button>
+			(click)="showInput = !showInput"><span>{{topic.comments.length}}</span><fa-icon [icon]="faComment"></fa-icon></button>
 	</div>
 </div>
 

@@ -6,10 +6,11 @@ import { TopicBlockComponent } from './topic-block/topic-block.component';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { TopicsListComponent } from './topics-list/topics-list.component';
 
 @NgModule({
-  declarations: [TopicBlockComponent, UploadImageComponent],
+  declarations: [TopicBlockComponent, UploadImageComponent, TopicsListComponent],
   imports: [CommonModule, FontAwesomeModule, FormsModule, RouterLink],
-  exports: [TopicBlockComponent, UploadImageComponent],
+  exports: [TopicsListComponent,TopicBlockComponent, UploadImageComponent],
 })
 export class SharedModule {}

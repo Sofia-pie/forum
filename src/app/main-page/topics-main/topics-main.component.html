@@ -1,11 +1,5 @@
 <div class="filter-options">
 	<button class="filter-item" (click)="sortByDate()">New</button>
 	<button class="filter-item" (click)="sortByUpvotes()">Trending</button>
-
 </div>
-
-
-<div class="questions-list scrollable">
-	<app-topic-block *ngFor="let t of topics" [topic]="t" [showCommentButton]="true"></app-topic-block>
-
-</div>
+<app-topics-list [topics]="topics"></app-topics-list>

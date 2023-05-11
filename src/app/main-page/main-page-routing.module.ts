@@ -6,6 +6,7 @@ import { TopicFormComponent } from '../topic-form/topic-form.component';
 
 import { TopicPageComponent } from '../topic-page/topic-page/topic-page.component';
 import { AuthGuardService } from '../core/guards/auth-guard.service';
+import { TopicsMainComponent } from './topics-main/topics-main.component';
 
 const routes: Routes = [
   
@@ -13,6 +14,11 @@ const routes: Routes = [
     path: '',
     component: MainPageComponent,
     pathMatch: 'full',
+    children:[{
+      path:'',
+      component:TopicsMainComponent,
+      data:{category:'all'}
+    }]
    
   },
   {
