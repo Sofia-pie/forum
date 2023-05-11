@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="topic">
-		<app-topic-block [topic]="topic" [showCommentButton]="false"></app-topic-block>
+		<ng-container *ngIf="topic"><app-topic-block [topic]="topic" [showCommentButton]="false"></app-topic-block></ng-container>
+		
 	</div>
 
 	<div class="comments-container scrollable">

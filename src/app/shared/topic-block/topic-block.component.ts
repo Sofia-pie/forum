@@ -9,6 +9,7 @@ import {
 import { Topic } from '../../core/models/topic';
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../core/services/user.service';
+import { TopicService } from '../../core/services/topic.service';
 
 @Component({
   selector: 'app-topic-block',
@@ -34,11 +35,12 @@ export class TopicBlockComponent implements OnInit {
   @Output() onUpvote = new EventEmitter();
   @Output() onDownvote = new EventEmitter();
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private topicService: TopicService) {}
 
   ngOnInit(): void {
     this.isUpvoted = this.topic.upvoters.includes(this.userService.userId!);
     this.isDownvoted = this.topic.downvoters.includes(this.userService.userId!);
+    console.log(this.isUpvoted);
   }
 
   addComment() {
@@ -49,13 +51,13 @@ export class TopicBlockComponent implements OnInit {
     this.isDownvoted=false;
     this.isUpvoted= !this.isUpvoted;
     this.isUpvoted? this.topic.upvotes++ : this.topic.upvotes--;
-    this.onUpvote.emit({id:this.topic._id, upvote:this.isUpvoted});
+    this.topicService.upvoteTopic(this.topic._id,this.isUpvoted).subscribe();
   }
   onDownvoteClick() {
     this.isUpvoted=false;
     this.isDownvoted= !this.isDownvoted;
     console.log(this.isDownvoted);
     this.isDownvoted? this.topic.upvotes-- : this.topic.upvotes++;
-    this.onDownvote.emit({id:this.topic._id, downvote:this.isDownvoted});
+    this.topicService.downvoteTopic(this.topic._id,this.isDownvoted).subscribe();
   }
 }

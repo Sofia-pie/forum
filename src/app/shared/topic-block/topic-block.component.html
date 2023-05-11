@@ -1,4 +1,4 @@
-<div class="topic" [routerLink]="['/topic', topic._id]">
+<div class="topic">
 	<div class="vote">
 		<button (click)="onUpvoteClick()"><fa-icon [icon]="faUp"[ngClass]="{'is-upvoted': isUpvoted}"></fa-icon></button>
 		<p>{{topic.upvotes}}</p>

@@ -32,7 +32,7 @@ export class TopicService {
     const action = downvote? 'add':'remove';
     return this.http.put<Topic>(`${this.baseUrl}/topics/${id}/downvote`,{action},{headers:this.headers}).pipe(tap((res)=>console.log(res)));
   }
-  // getTopicById(id: string): Observable<Topic> {
-  //   // return of(this.questions.find((question) => question._id === id)!);
-  // }
+  getTopicById(id: string): Observable<Topic> {
+    return this.http.get<Topic>(`${this.baseUrl}/topics/${id}`);
+  }
 }

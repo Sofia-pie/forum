@@ -18,9 +18,9 @@
   height: 50vh;
 }
 .topic {
-  display: flex;
+  /* display: flex; */
   position: relative;
-  align-items: center;
+  /* align-items: center; */
   padding-bottom: 1.2rem;
   border-bottom: 1px solid #808080;
 }

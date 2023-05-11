@@ -18,13 +18,5 @@ export class TopicsListComponent implements OnInit {
    
   }
  
-  upvoteTopic({id, upvote}:any){
-      this.topicService.upvoteTopic(id,upvote).subscribe();
-
-  }
-
-  downvoteTopic({id,downvote}:any){
-    this.topicService.downvoteTopic(id,downvote).subscribe();
-    
-  }
+  
 }

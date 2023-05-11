@@ -23,7 +23,7 @@ export class TopicPageComponent implements OnInit {
   faUser = faUser;
   faRight = faArrowRight;
   topic: Topic;
-  comments: Comment[];
+  comments: any[];
   comment: String;
   constructor(
     private route: ActivatedRoute,
@@ -33,12 +33,11 @@ export class TopicPageComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    // this.topicService.getTopicById(id!).subscribe((topic) => {
-    //   this.topic = topic;
-    // });
-    // this.commentsService
-    //   .getCommentsByTopicId(id!)
-    //   .subscribe((c) => (this.comments = c));
+    this.topicService.getTopicById(id!).subscribe((topic) => {
+      this.topic = topic;
+      this.comments = topic.comments;
+    });
+    
   }
 
   addComment() {
@@ -46,14 +45,14 @@ export class TopicPageComponent implements OnInit {
   }
 
   onCommentUpvote(comment: any) {
-    this.commentsService
-      .updateCommentUpvotes(comment._id, comment.upvotes)
-      .subscribe();
+    // this.commentsService
+    //   .updateCommentUpvotes(comment._id, comment.upvotes)
+    //   .subscribe();
   }
 
   onCommentDownvote(comment: any) {
-    this.commentsService
-      .updateCommentUpvotes(comment._id, comment.upvotes)
-      .subscribe((c) => console.log(this.comments));
+    // this.commentsService
+    //   .updateCommentUpvotes(comment._id, comment.upvotes)
+    //   .subscribe((c) => console.log(this.comments));
   }
 }
