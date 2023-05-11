@@ -4,6 +4,7 @@ import {
   faSearch,
   faUser,
   faCaretDown,
+  faCommentDots,
 } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit {
   faSearch = faSearch;
   faUser = faUser;
   faTriangle = faCaretDown;
+  faLogo=faCommentDots;
   showMenu = false;
   search = '';
   user: User;

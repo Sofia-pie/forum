@@ -2,6 +2,12 @@
   flex: 0 1 auto;
 }
 
+.logo{
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #808080;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

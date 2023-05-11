@@ -1,4 +1,5 @@
 <div class="header">
+	<fa-icon [icon]="faLogo" [routerLink]="['/main']" class="logo"></fa-icon>
 	<ng-container *ngIf="this.router.url !='/sign-in' && this.router.url !='/sign-up'">
 		<div class="search-bar">
 			<fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
