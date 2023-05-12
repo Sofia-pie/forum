@@ -20,10 +20,11 @@ import { TopicsMainComponent } from './topics-main/topics-main.component';
     FontAwesomeModule,
     SharedModule,
     MainPageRoutingModule,
+    TopicPageModule,
     RouterModule,
     FormsModule,
     TopicFormModule,
-    TopicPageModule,
+  
   ],
   exports: [MainPageComponent],
 })

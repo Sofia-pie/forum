@@ -1,21 +1,27 @@
 :host {
-  flex: 1 1 auto;
+  /* flex: 1 1 auto;
   margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(0, 250px) minmax(0, 2.5fr) minmax(0, 250px);
   position: relative;
-  grid-gap: 20px;
+  grid-gap: 20px;*/
+  background: #ffffff;
+  box-shadow: -4px -4px 16px rgba(0, 0, 0, 0.06),
+    4px 4px 16px rgba(0, 0, 0, 0.06);
+ display: block;
+ height:  100%;
+ padding: 1rem;
 }
 .container {
-  grid-column: 2/3;
+  /* grid-column: 2/3; */
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100%;
+  grid-template-rows: max-content auto max-content;
+  height: 95%;
+
 }
 
 .scrollable {
   overflow-y: auto;
-  height: 50vh;
 }
 .topic {
   /* display: flex; */
@@ -29,86 +35,13 @@ fa-icon {
   font-size: 1.5rem;
 }
 
-.vote {
-  text-align: center;
-  margin-right: 1rem;
-}
-
-.vote p {
-  margin-block: 5px;
-  font-size: 1.5rem;
-}
-.vote button {
-  padding: 0;
-  outline: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.topic-text {
-  margin-left: 15px;
-}
-
-.topic-text h4 {
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 0;
-}
-
-.time {
-  margin-top: 5px;
-}
-
-.details {
-  color: #9e9e9e;
-  font-size: 1.25rem;
-}
-.tag {
-  border: 1px solid #1795a8;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
-}
-
-.tag:hover {
-  background-color: #1795a8;
-  color: #fff;
-}
-.info {
-  margin-left: 30px;
-}
-
-.user {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.comment-button {
-  padding: 0;
-  outline: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  min-width: 35px;
-  display: flex;
-  align-items: center;
-}
-
-.comment-button span {
-  margin-right: 0.5rem;
-}
 
 .input-container {
   display: flex;
   align-items: center;
   height: 3.5rem;
   grid-row: 3/4;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+ 
 }
 
 .comment-input {

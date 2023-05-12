@@ -13,18 +13,20 @@ const routes: Routes = [
   {
     path: '',
     component: MainPageComponent,
-    pathMatch: 'full',
-    children:[{
+    children:[
+      {
+        path: 'topic/:id',
+        component: TopicPageComponent,
+      },
+      {
       path:'',
       component:TopicsMainComponent,
+      pathMatch: 'full',
       data:{category:'all'}
     }]
    
   },
-  {
-    path: 'topic/:id',
-    component: TopicPageComponent,
-  },
+
   {
     path: 'new-topic',
     canActivate:[AuthGuardService],
