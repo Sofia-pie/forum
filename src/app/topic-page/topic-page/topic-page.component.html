@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container  scrollable">
 	<div class="topic">
-		<ng-container *ngIf="topic"><app-topic-block [topic]="topic" [showCommentButton]="false"></app-topic-block></ng-container>
-		
+		<ng-container *ngIf="topic"><app-topic-block [topic]="topic"
+				[showCommentButton]="false"></app-topic-block></ng-container>
+
 	</div>
 
-	<div class="comments-container scrollable">
+	<div class="comments-container">
 		<app-comment *ngFor="let comment of comments" [comment]="comment" (onUpvote)="onCommentUpvote($event)"
 			(onDownvote)="onCommentDownvote($event)"></app-comment>
 	</div>

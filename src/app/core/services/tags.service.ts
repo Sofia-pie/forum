@@ -13,7 +13,7 @@ export class TagsService {
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private baseUrl = `${environment.apiUrl}`;
 
-  constructor(private http: HttpClient,) {}
+  constructor(private http: HttpClient) {}
 
   getTags(): Observable<string[]> {
     return this.http.get<Tag[]>(`${this.baseUrl}/tags`).pipe(

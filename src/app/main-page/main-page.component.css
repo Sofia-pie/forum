@@ -1,7 +1,8 @@
 :host {
-  flex: 1 1 auto;
+  flex-basis: 1 1 auto;
   display: grid;
   grid-template-columns: minmax(0, 300px) auto minmax(0, 300px);
+  grid-template-rows: 100%;
   position: relative;
   grid-gap: 20px;
   max-height: 90%;
@@ -53,7 +54,6 @@ fa-icon {
   padding-top: 1.7rem;
   max-height: 100%;
   padding-bottom: 1rem;
-
 }
 
 .right-side {

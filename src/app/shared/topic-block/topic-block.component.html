@@ -17,14 +17,15 @@
 			<span>{{topic.user_id.username}}</span>
 			<div class="user-img"><img [src]="url+'/'+topic.user_id.profilePicture" alt=""></div>
 		</div>
-		<button class="comment-button" *ngIf="showCommentButton"
-			(click)="showInput = !showInput"><span>{{topic.comments.length}}</span><fa-icon [icon]="faComment"></fa-icon></button>
+	
+		<button class="comment-button" 
+			(click)="onShowCommentInputClick()"><span>{{commentsCount}}</span><fa-icon [icon]="faComment"></fa-icon></button>
 	</div>
 </div>
 
 <ng-container *ngIf="showInput">
 	<div class="input-container">
 		<input type="text" placeholder="Enter your comment" [(ngModel)]="comment" class="comment-input">
-		<button (click)="addComment()" class="submit"><fa-icon [icon]="faRight"></fa-icon></button>
+		<button (click)="onaddCommentClick()" class="submit"><fa-icon [icon]="faRight"></fa-icon></button>
 	</div>
 </ng-container>

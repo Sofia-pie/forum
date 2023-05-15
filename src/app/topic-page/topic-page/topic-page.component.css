@@ -8,16 +8,13 @@
   background: #ffffff;
   box-shadow: -4px -4px 16px rgba(0, 0, 0, 0.06),
     4px 4px 16px rgba(0, 0, 0, 0.06);
- display: block;
- height:  100%;
- padding: 1rem;
+  display: block;
+  height: 100%;
 }
 .container {
-  /* grid-column: 2/3; */
   display: grid;
   grid-template-rows: max-content auto max-content;
-  height: 95%;
-
+  max-height: 100%;
 }
 
 .scrollable {
@@ -30,18 +27,21 @@
   padding-bottom: 1.2rem;
   border-bottom: 1px solid #808080;
 }
+
+.comments-container {
+  margin-bottom: 2rem;
+}
+
 fa-icon {
   color: #808080;
   font-size: 1.5rem;
 }
-
 
 .input-container {
   display: flex;
   align-items: center;
   height: 3.5rem;
   grid-row: 3/4;
- 
 }
 
 .comment-input {

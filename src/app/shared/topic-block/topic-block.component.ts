@@ -10,6 +10,8 @@ import { Topic } from '../../core/models/topic';
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../core/services/user.service';
 import { TopicService } from '../../core/services/topic.service';
+import { Router } from '@angular/router';
+import { UpvoteService } from '../../core/services/upvote.service';
 
 @Component({
   selector: 'app-topic-block',
@@ -28,36 +30,59 @@ export class TopicBlockComponent implements OnInit {
 
   comment: string;
   isUpvoted: boolean = false;
-  isDownvoted: boolean =false;
-
+  isDownvoted: boolean = false;
+  commentsCount: number;
   @Input() topic: Topic;
   @Input() showCommentButton: boolean;
-  @Output() onUpvote = new EventEmitter();
-  @Output() onDownvote = new EventEmitter();
+  @Output() addComment = new EventEmitter();
 
-  constructor(private userService: UserService,private topicService: TopicService) {}
+  constructor(
+    private userService: UserService,
+    private topicService: TopicService,
+    private router: Router,
+    private upvoteService: UpvoteService
+  ) {}
 
   ngOnInit(): void {
     this.isUpvoted = this.topic.upvoters.includes(this.userService.userId!);
     this.isDownvoted = this.topic.downvoters.includes(this.userService.userId!);
-    console.log(this.isUpvoted);
+    this.commentsCount = this.topic.comments.length;
   }
 
-  addComment() {
-    console.log(this.comment);
+  onaddCommentClick() {
+    if (!this.userService.isLoggedIn) {
+      this.router.navigate(['/sign-in']);
+    }
+    this.addComment.emit({ id: this.topic._id, comment: this.comment });
+    this.commentsCount++;
   }
-
+  onShowCommentInputClick() {
+    if (!this.showCommentButton) return;
+    this.showInput = !this.showInput;
+  }
   onUpvoteClick() {
-    this.isDownvoted=false;
-    this.isUpvoted= !this.isUpvoted;
-    this.isUpvoted? this.topic.upvotes++ : this.topic.upvotes--;
-    this.topicService.upvoteTopic(this.topic._id,this.isUpvoted).subscribe();
+    if (!this.userService.isLoggedIn) {
+      this.router.navigate(['/sign-in']);
+    }
+    this.isDownvoted = false;
+    this.isUpvoted = !this.isUpvoted;
+    this.upvoteService
+      .upvoteItem(this.topic._id, this.isUpvoted, 'topic')
+      .subscribe((res) => {
+        this.topic.upvotes = res.upvotes;
+      });
   }
   onDownvoteClick() {
-    this.isUpvoted=false;
-    this.isDownvoted= !this.isDownvoted;
+    if (!this.userService.isLoggedIn) {
+      this.router.navigate(['/sign-in']);
+    }
+    this.isUpvoted = false;
+    this.isDownvoted = !this.isDownvoted;
     console.log(this.isDownvoted);
-    this.isDownvoted? this.topic.upvotes-- : this.topic.upvotes++;
-    this.topicService.downvoteTopic(this.topic._id,this.isDownvoted).subscribe();
+    this.upvoteService
+      .downvoteItem(this.topic._id, this.isDownvoted, 'topic')
+      .subscribe((res) => {
+        this.topic.upvotes = res.upvotes;
+      });
   }
 }

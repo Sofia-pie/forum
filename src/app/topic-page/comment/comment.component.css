@@ -10,3 +10,14 @@
   margin-inline: 0.5rem;
   cursor: pointer;
 }
+
+.comment-user {
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.comment-user img {
+  max-height: 50px;
+  border-radius: 50%;
+}

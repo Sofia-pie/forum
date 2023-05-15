@@ -1,10 +1,8 @@
-import { User } from "./user";
+import { Common } from './common';
+import { User } from './user';
 
-export interface Comment {
-  _id: string;
-  user_id: User;
+export interface Comment extends Common {
   topic_id: string;
   text: string;
   created_date?: Date;
-  upvotes: number;
 }

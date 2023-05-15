@@ -1,15 +1,12 @@
-import { Tag } from "./tag";
-import { User } from "./user";
+import { Common } from './common';
+import { Tag } from './tag';
+import { User } from './user';
 
-export interface Topic {
-  _id: string;
-  user_id: User;
+export interface Topic extends Common {
   title: string;
   content?: string;
   created_date?: Date;
   tags: Tag[];
-  upvotes: number;
+
   comments: Comment[];
-  upvoters: string[];
-  downvoters: string[];
 }

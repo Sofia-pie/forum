@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Comment } from '../models/comments';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentsService {
+  private headers = new HttpHeaders().set('Content-Type', 'application/json');
+  private baseUrl = `${environment.apiUrl}`;
 
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
 //   updateCommentUpvotes(
 //     commentId: string,
@@ -27,5 +31,9 @@ export class CommentsService {
 //     const comments = this.comments.filter((c) => c.topic_id === topicId);
 //     return of(comments);
 //   }
+
+createComment(topicId: string,text: string):Observable<Comment>{
+   return  this.http.post<Comment>(`${this.baseUrl}/topics/${topicId}/comments`,{text},{headers:this.headers})
+}
 
 }
