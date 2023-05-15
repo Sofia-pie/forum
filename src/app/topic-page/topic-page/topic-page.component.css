@@ -30,6 +30,8 @@
 
 .comments-container {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 fa-icon {
@@ -42,6 +44,7 @@ fa-icon {
   align-items: center;
   height: 3.5rem;
   grid-row: 3/4;
+  padding: 0.5rem;
 }
 
 .comment-input {

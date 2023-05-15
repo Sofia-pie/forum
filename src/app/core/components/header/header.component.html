@@ -10,7 +10,8 @@
 		</ng-container>
 		<div class="profile" *ngIf="user">
 			<!-- <fa-icon [icon]="faUser"></fa-icon> -->
-			<div class="user-img"><img [src]="user.profilePicture" alt=""></div>
+			<div class="user-img"><img [src]="user.profilePicture" alt="">
+			</div>
 			<button class="dropdown-button" (click)="onDropdownClick()">
 				<fa-icon [icon]="faTriangle"></fa-icon>
 			</button>

@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Topic } from '../core/models/topic';
 import { TopicService } from '../core/services/topic.service';
+import { UserService } from '../core/services/user.service';
+import { User } from '../core/models/user';
 
 @Component({
   selector: 'app-main-page',
@@ -25,11 +27,23 @@ export class MainPageComponent implements OnInit {
   faLikes = faThumbsUp;
   faAdd = faPlus;
 
+  user: User;
   topics: Topic[];
 
-  constructor(private topicService: TopicService) {}
+  constructor(
+    private topicService: TopicService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     // this.topicService.geTopics().subscribe((t) => (this.topics = t));
+
+    if (this.userService.token) {
+      this.userService.getCurrentUser().subscribe((res) => {
+        this.user = res;
+
+        console.log(res);
+      });
+    }
   }
 }

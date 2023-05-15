@@ -4,7 +4,7 @@
 </div>
 <p class="comment-text">{{comment.text}}</p>
 <div class="upvotes">
-	<fa-icon [icon]="faUp" (click)="onUpvoteClick()"></fa-icon>
+	<fa-icon [icon]="faUp" (click)="onUpvoteClick()" [ngClass]="{'is-upvoted': isUpvoted}"></fa-icon>
 	<span>{{comment.upvotes}}</span>
-	<fa-icon [icon]="faDown" (click)="onDownvoteClick()"></fa-icon>
+	<fa-icon [icon]="faDown" (click)="onDownvoteClick()" [ngClass]="{'is-downvoted': isDownvoted}"></fa-icon>
 </div>

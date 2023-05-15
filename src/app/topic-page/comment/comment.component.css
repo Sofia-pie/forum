@@ -1,3 +1,8 @@
+:host {
+  border-bottom: 1px solid #e8e8e8;
+  padding-block: 0.6rem;
+}
+
 .upvotes {
   width: fit-content;
   margin-left: auto;
@@ -13,11 +18,21 @@
 
 .comment-user {
   display: flex;
-  padding: 1rem;
+  padding-inline: 1rem;
   gap: 2rem;
 }
 
 .comment-user img {
-  max-height: 50px;
+  height: 50px;
+  width: 50px;
+
   border-radius: 50%;
+}
+
+.is-upvoted {
+  color: green;
+}
+
+.is-downvoted {
+  color: red;
 }

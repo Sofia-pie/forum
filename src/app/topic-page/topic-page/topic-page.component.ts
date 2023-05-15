@@ -23,8 +23,8 @@ export class TopicPageComponent implements OnInit {
   faUser = faUser;
   faRight = faArrowRight;
   topic: Topic;
-  comments: any[];
-  comment: String;
+  comments: Comment[];
+  comment: string;
   constructor(
     private route: ActivatedRoute,
     private topicService: TopicService,
@@ -35,13 +35,16 @@ export class TopicPageComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.topicService.getTopicById(id!).subscribe((topic) => {
       this.topic = topic;
-      this.comments = topic.comments;
+      this.comments = topic.comments.sort((a, b) => b.upvotes - a.upvotes);
     });
-    
   }
 
   addComment() {
-    console.log(this.comment);
+    this.commentsService
+      .createComment(this.topic._id, this.comment)
+      .subscribe((res) => {
+        this.comments.push(res);
+      });
   }
 
   onCommentUpvote(comment: any) {

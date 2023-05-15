@@ -3,16 +3,17 @@ footer {
   bottom: 0;
   right: 0;
   max-width: 240px;
-  margin: 1.25rem 1.25rem;
+  margin: 1rem 1rem 0;
   gap: 25px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  color: #939393;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  color: #939393;
+
   font-size: 1em;
 }
 
@@ -21,4 +22,11 @@ footer {
   margin: 0.3em;
   text-decoration: none;
   color: #939393;
+}
+
+@media (max-width: 1200px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
 }

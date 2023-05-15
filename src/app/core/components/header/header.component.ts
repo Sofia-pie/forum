@@ -15,24 +15,25 @@ import { User } from '../../models/user';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   faSearch = faSearch;
   faUser = faUser;
   faTriangle = faCaretDown;
-  faLogo=faCommentDots;
+  faLogo = faCommentDots;
   showMenu = false;
   search = '';
-  user: User;
-  constructor(public router: Router, public userService: UserService) {
-    if (this.userService.token) {
-      this.userService.getCurrentUser().subscribe(res=>{this.user=res
-      console.log(res)});
-    }
+  user: User | null;
 
-  }
+  profilePicture: string;
+  constructor(public router: Router, public userService: UserService) {}
 
   ngOnInit(): void {
-  
+    if (this.userService.token) {
+      this.userService.getCurrentUser().subscribe((res) => {
+        this.user = res;
+
+        console.log(res);
+      });
+    }
   }
 
   onDropdownClick() {
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
+    this.user = null;
     this.userService.logout();
   }
 }

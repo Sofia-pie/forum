@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
     this.userService
       .loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(() => {
-        this.router.navigate(['/main']);
+        this.router.navigate(['/main']).then(() => {
+          window.location.reload();
+        });
       });
   }
 }
