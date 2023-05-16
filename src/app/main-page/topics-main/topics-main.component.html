@@ -1,5 +1,5 @@
 <div class="filter-options">
-	<button class="filter-item" (click)="sortByDate()">New</button>
-	<button class="filter-item" (click)="sortByUpvotes()">Trending</button>
+	<button class="filter-item" (click)="sortByDate()" [ngClass]="{'active': sort ==='date'}">New</button>
+	<button class="filter-item" (click)="sortByUpvotes()" [ngClass]="{'active': sort ==='upvotes'}">Trending</button>
 </div>
 <app-topics-list [topics]="topics"></app-topics-list>

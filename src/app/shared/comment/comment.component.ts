@@ -33,13 +33,14 @@ export class CommentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isUpvoted = this.comment.upvoters.includes(this.userService.userId!);
+    this.isUpvoted = this.comment.upvoters.includes(
+      this.userService.currentUserId!
+    );
     this.isDownvoted = this.comment.downvoters.includes(
-      this.userService.userId!
+      this.userService.currentUserId!
     );
 
-    this.profilePicture =
-      environment.apiUrl + '\\' + this.comment.user_id.profilePicture;
+    this.profilePicture = this.comment.user_id.profilePicture!;
   }
   onUpvoteClick() {
     if (!this.userService.isLoggedIn) {

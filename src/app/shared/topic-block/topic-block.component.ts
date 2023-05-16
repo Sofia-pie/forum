@@ -44,8 +44,12 @@ export class TopicBlockComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isUpvoted = this.topic.upvoters.includes(this.userService.userId!);
-    this.isDownvoted = this.topic.downvoters.includes(this.userService.userId!);
+    this.isUpvoted = this.topic.upvoters.includes(
+      this.userService.currentUserId!
+    );
+    this.isDownvoted = this.topic.downvoters.includes(
+      this.userService.currentUserId!
+    );
     this.commentsCount = this.topic.comments.length;
   }
 

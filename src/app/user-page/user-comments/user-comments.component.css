@@ -13,6 +13,10 @@
   overflow-y: auto;
 }
 
+.scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
 /* Track */
 .scrollable::-webkit-scrollbar-track {
   background: transparent;
@@ -20,7 +24,7 @@
 
 /* Handle */
 .scrollable::-webkit-scrollbar-thumb {
-  background: #d7d7d7;
+  background: #b9b9b9;
 }
 
 /* Handle on hover */

@@ -1,0 +1,34 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+	<div>
+		<p>Ім'я</p>
+		<input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': isInvalid('firstName') }">
+
+	</div>
+	<div>
+		<p>Прізвище</p>
+		<input type="text" formControlName="lastName">
+	</div>
+	<div>
+		<p>Ім'я користувача</p>
+		<input type="text" formControlName="username" [ngClass]="{ 'is-invalid': isInvalid('username') }">
+
+	</div>
+	<div>
+		<p>Про себе</p>
+		<textarea cols="25" rows="10" formControlName="bio"></textarea>
+	</div>
+	<div>
+		<p>Фото</p>
+		<input type="file" accept="image/png, image/jpeg" (change)="uploadFile($event)">
+		<div class="preview" *ngIf="preview && preview !== null">
+			<img [src]="preview" [alt]="">
+		</div>
+	</div>
+
+
+	<div>
+		<button type="submit" [disabled]="userForm.invalid" class="submit-button">Підтвердити зміни
+		</button>
+	</div>
+</form>
+<div class="img-container"></div>

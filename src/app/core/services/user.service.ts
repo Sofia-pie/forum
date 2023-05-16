@@ -22,7 +22,6 @@ export class UserService {
 
   registerUser(data: any): Observable<any> {
     let formData: any = new FormData();
-
     for (let i in data) {
       formData.append(i, data[i]);
     }
@@ -37,6 +36,17 @@ export class UserService {
           localStorage.setItem('access_token', res.jwt_token);
         })
       );
+  }
+
+  editUserInfo(data: any) {
+    const header = new HttpHeaders().set('Content-Type', 'multipart/form-data');
+    let userData: any = new FormData();
+
+    for (let i in data) {
+      userData.append(i, data[i]);
+    }
+
+    return this.http.put<User>(`${this.baseUrl}/user`, userData);
   }
 
   get token(): string | undefined {
@@ -81,7 +91,7 @@ export class UserService {
     }
   }
 
-  get userId(): string {
+  get currentUserId(): string {
     const jwtToken = this.token!;
     const decodedToken = this.jwtHelper.decodeToken(jwtToken);
     return decodedToken.user_id;

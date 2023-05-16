@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     if (this.userService.token) {
       this.userService.getCurrentUser().subscribe((res) => {
         this.user = res;
-
+        this.profilePicture = res.profilePicture;
         console.log(res);
       });
     }

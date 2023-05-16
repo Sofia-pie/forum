@@ -1,0 +1,49 @@
+:host {
+  background: #fff;
+
+  box-shadow: 0px 0px 70px -19px rgb(185, 185, 185);
+  border-radius: 30px;
+  max-height: 100%;
+
+  padding: 1rem;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+form input {
+  background: #e3e3e3;
+  border-radius: 7.5px;
+  border: none;
+  padding: 1.25rem 0 1.25rem 0.5rem;
+}
+
+form textarea {
+  background: #e3e3e3;
+  border-radius: 7.5px;
+  border: none;
+}
+.is-invalid {
+  border: 1px solid red;
+}
+
+.preview {
+  height: 100px;
+  width: 150px;
+}
+
+.preview img {
+  height: 100%;
+}
+
+.submit-button {
+  background: #1795a8;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  margin-top: 2rem;
+  padding: 1rem 5rem;
+  cursor: pointer;
+  height: min-content;
+}

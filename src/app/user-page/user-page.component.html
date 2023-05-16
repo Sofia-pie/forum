@@ -4,6 +4,11 @@
 		<h5 class="name">{{user.firstName}} {{user.lastName}}</h5>
 		<p class="username">{{user.username}}</p>
 		<p class="bio">{{user.bio}}</p>
+		<div class="controlls">
+			<fa-icon [icon]="faEdit" class="edit" *ngIf="user._id === currentUserId"
+				[routerLink]="['./edit-user']"></fa-icon>
+		</div>
+
 	</div>
 </div>
 <div class="user-content">

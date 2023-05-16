@@ -8,9 +8,20 @@
   flex-direction: column;
 }
 
+.controlls {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+
+.controlls .edit {
+  cursor: pointer;
+}
+
 .user-info {
   display: flex;
   padding: 1rem 1rem;
+  position: relative;
 }
 
 .profile-picture {

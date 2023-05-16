@@ -27,7 +27,6 @@ export class UserCommentsComponent implements OnInit {
       )
       .subscribe((res) => {
         this.comments = res;
-        console.log(this.comments[0]);
       });
   }
 }

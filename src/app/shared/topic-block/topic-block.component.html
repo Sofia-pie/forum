@@ -18,7 +18,7 @@
 	<div class="info">
 		<div class="user" [routerLink]="['/user',topic.user_id._id]">
 			<span>{{topic.user_id.username}}</span>
-			<div class="user-img"><img [src]="url+'/'+topic.user_id.profilePicture" alt=""></div>
+			<div class="user-img"><img [src]="topic.user_id.profilePicture" alt=""></div>
 		</div>
 
 		<button class="comment-button" (click)="onShowCommentInputClick()"><span>{{commentsCount}}</span><fa-icon

@@ -5,6 +5,7 @@ import { User } from '../core/models/user';
 import { environment } from '../../environments/environment';
 import { Topic } from '../core/models/topic';
 import { Comment } from '../core/models/comments';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-page',
@@ -18,6 +19,9 @@ export class UserPageComponent implements OnInit {
   showComments: boolean;
   topics: Topic[];
   comments: Comment[];
+  currentUserId: string;
+
+  faEdit = faEdit;
 
   constructor(
     private userService: UserService,
@@ -29,6 +33,7 @@ export class UserPageComponent implements OnInit {
     console.log(id);
     this.userService.getUser(id!).subscribe((res) => {
       this.user = res;
+      this.currentUserId = this.userService.currentUserId;
     });
   }
 
