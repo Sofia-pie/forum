@@ -1,0 +1,61 @@
+:host {
+  background: #fff;
+
+  box-shadow: 0px 0px 70px -19px rgb(185, 185, 185);
+  border-radius: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info {
+  display: flex;
+  padding: 1rem 1rem;
+}
+
+.profile-picture {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 2rem;
+}
+
+.user-info img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.username {
+  color: gray;
+  margin-top: 0.5rem;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.user-content {
+  display: flex;
+  justify-content: center;
+  padding: 0.6rem;
+}
+.filter-item {
+  font-size: 18px;
+  margin-right: 36px;
+  border: none;
+  padding: 9px 13px;
+  border: 1px solid #fccf47;
+  border-radius: 100px;
+  background: #fff;
+
+  cursor: pointer;
+}
+
+button.active {
+  background: #fccf47;
+  color: #fff;
+}
+
+.container {
+  height: 90%;
+}

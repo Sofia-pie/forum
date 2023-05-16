@@ -1,8 +1,9 @@
-<div class="comment-user">
+<div class="comment-user" [routerLink]="['/user',comment.user_id._id]">
 	<img [src]="profilePicture" alt="">
 	<h5 class="username">{{comment.user_id.username}}</h5>
 </div>
-<p class="comment-text">{{comment.text}}</p>
+<p class="comment-text" [routerLink]="['/topic',comment.topic_id]">{{comment.text}}</p>
+
 <div class="upvotes">
 	<fa-icon [icon]="faUp" (click)="onUpvoteClick()" [ngClass]="{'is-upvoted': isUpvoted}"></fa-icon>
 	<span>{{comment.upvotes}}</span>

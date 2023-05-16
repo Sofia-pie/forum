@@ -1,8 +1,10 @@
 <div class="topic">
 	<div class="vote">
-		<button (click)="onUpvoteClick()"><fa-icon [icon]="faUp"[ngClass]="{'is-upvoted': isUpvoted}"></fa-icon></button>
+		<button (click)="onUpvoteClick()"><fa-icon [icon]="faUp"
+				[ngClass]="{'is-upvoted': isUpvoted}"></fa-icon></button>
 		<p>{{topic.upvotes}}</p>
-		<button (click)="onDownvoteClick()"><fa-icon [icon]="faDown" [ngClass]="{'is-downvoted': isDownvoted}"></fa-icon></button>
+		<button (click)="onDownvoteClick()"><fa-icon [icon]="faDown"
+				[ngClass]="{'is-downvoted': isDownvoted}"></fa-icon></button>
 	</div>
 	<div class="topic-text" [routerLink]="['/topic',topic._id]">
 		<h4>{{topic.title}}</h4>
@@ -12,14 +14,15 @@
 			<span class="tag" *ngFor=" let tag of topic.tags">{{tag.name}}</span>
 		</div>
 	</div>
+
 	<div class="info">
-		<div class="user">
+		<div class="user" [routerLink]="['/user',topic.user_id._id]">
 			<span>{{topic.user_id.username}}</span>
 			<div class="user-img"><img [src]="url+'/'+topic.user_id.profilePicture" alt=""></div>
 		</div>
-	
-		<button class="comment-button" 
-			(click)="onShowCommentInputClick()"><span>{{commentsCount}}</span><fa-icon [icon]="faComment"></fa-icon></button>
+
+		<button class="comment-button" (click)="onShowCommentInputClick()"><span>{{commentsCount}}</span><fa-icon
+				[icon]="faComment"></fa-icon></button>
 	</div>
 </div>
 

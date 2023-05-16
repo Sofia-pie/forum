@@ -9,27 +9,31 @@ import { AuthGuardService } from '../core/guards/auth-guard.service';
 import { TopicsMainComponent } from './topics-main/topics-main.component';
 
 const routes: Routes = [
-  
   {
     path: '',
     component: MainPageComponent,
-    children:[
+    children: [
       {
         path: 'topic/:id',
         component: TopicPageComponent,
       },
       {
-      path:'',
-      component:TopicsMainComponent,
-      pathMatch: 'full',
-      data:{category:'all'}
-    }]
-   
+        path: 'user/:id',
+        loadChildren: () =>
+          import('../user-page/user-page.module').then((m) => m.UserPageModule),
+      },
+      {
+        path: '',
+        component: TopicsMainComponent,
+        pathMatch: 'full',
+        data: { category: 'all' },
+      },
+    ],
   },
 
   {
     path: 'new-topic',
-    canActivate:[AuthGuardService],
+    canActivate: [AuthGuardService],
     component: TopicFormComponent,
   },
 ];

@@ -43,19 +43,8 @@ export class TopicPageComponent implements OnInit {
     this.commentsService
       .createComment(this.topic._id, this.comment)
       .subscribe((res) => {
+        console.log(res);
         this.comments.push(res);
       });
-  }
-
-  onCommentUpvote(comment: any) {
-    // this.commentsService
-    //   .updateCommentUpvotes(comment._id, comment.upvotes)
-    //   .subscribe();
-  }
-
-  onCommentDownvote(comment: any) {
-    // this.commentsService
-    //   .updateCommentUpvotes(comment._id, comment.upvotes)
-    //   .subscribe((c) => console.log(this.comments));
   }
 }

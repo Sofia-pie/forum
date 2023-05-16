@@ -6,8 +6,7 @@
 	</div>
 
 	<div class="comments-container">
-		<app-comment *ngFor="let comment of comments" [comment]="comment" (onUpvote)="onCommentUpvote($event)"
-			(onDownvote)="onCommentDownvote($event)"></app-comment>
+		<app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
 	</div>
 	<div class="input-container">
 		<input type="text" placeholder="Enter your comment" [(ngModel)]="comment" class="comment-input">

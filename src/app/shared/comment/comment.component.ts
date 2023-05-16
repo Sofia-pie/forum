@@ -37,6 +37,7 @@ export class CommentComponent implements OnInit {
     this.isDownvoted = this.comment.downvoters.includes(
       this.userService.userId!
     );
+
     this.profilePicture =
       environment.apiUrl + '\\' + this.comment.user_id.profilePicture;
   }
