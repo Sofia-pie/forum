@@ -4,10 +4,21 @@
 		<h5 class="username">{{comment.user_id.username}}</h5>
 	</div>
 </ng-container>
+<fa-icon [icon]="faDelete" class="delete-icon" *ngIf="this.router.url ==='/main/my-comments'"
+	(click)="showConfirm = true"></fa-icon>
 <p class="comment-text" [routerLink]="['/main/topic',comment.topic_id]">{{comment.text}}</p>
 
 <div class="upvotes">
 	<fa-icon [icon]="faUp" (click)="onUpvoteClick()" [ngClass]="{'is-upvoted': isUpvoted}"></fa-icon>
 	<span>{{comment.upvotes}}</span>
 	<fa-icon [icon]="faDown" (click)="onDownvoteClick()" [ngClass]="{'is-downvoted': isDownvoted}"></fa-icon>
+</div>
+
+
+<div class="confirm" *ngIf="showConfirm">
+	<p>Виталити?</p>
+	<div>
+		<span style="color: red; cursor: pointer;" (click)="onDeleteClick()">Так</span>
+		<span style="cursor: pointer; margin-left: 1rem;" (click)="showConfirm = false">Ні</span>
+	</div>
 </div>

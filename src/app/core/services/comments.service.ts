@@ -39,4 +39,8 @@ export class CommentsService {
       { headers: this.headers }
     );
   }
+
+  deleteComment(id: string) {
+    return this.http.delete(`${this.baseUrl}/comments/${id}`);
+  }
 }

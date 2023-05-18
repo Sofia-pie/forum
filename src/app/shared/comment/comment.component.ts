@@ -1,6 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Comment } from '../../core/models/comments';
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowDown,
+  faArrowUp,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { CommentsService } from '../../core/services/comments.service';
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../core/services/user.service';
@@ -15,6 +19,7 @@ import { UpvoteService } from '../../core/services/upvote.service';
 export class CommentComponent implements OnInit {
   faUp = faArrowUp;
   faDown = faArrowDown;
+  faDelete = faTrash;
 
   @Input() comment: Comment;
 
@@ -24,11 +29,14 @@ export class CommentComponent implements OnInit {
   profilePicture: string;
   isUpvoted: boolean = false;
   isDownvoted: boolean = false;
+  showConfirm: boolean = false;
+
+  @Output() deleteComment = new EventEmitter();
 
   constructor(
     private commentsService: CommentsService,
     private userService: UserService,
-    private router: Router,
+    public router: Router,
     private upvoteService: UpvoteService
   ) {}
 
@@ -67,5 +75,11 @@ export class CommentComponent implements OnInit {
       .subscribe((res) => {
         this.comment.upvotes = res.upvotes;
       });
+  }
+
+  onDeleteClick() {
+    if (this.userService.currentUserId == this.comment.user_id?._id) {
+      this.deleteComment.emit(this.comment._id);
+    }
   }
 }
