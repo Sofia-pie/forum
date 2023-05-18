@@ -30,7 +30,7 @@
 
 </form>
 <div class="buttons">
-	<button type="submit" [disabled]="userForm.invalid" class="submit-button">Підтвердити зміни
+	<button type="submit" [disabled]="userForm.invalid" class="submit-button" (click)="onSubmit()">Підтвердити зміни
 	</button>
 
 	<button class="delete-button" (click)="onDeleteClick()"> Видалити профіль </button>

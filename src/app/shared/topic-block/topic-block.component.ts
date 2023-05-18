@@ -4,6 +4,8 @@ import {
   faArrowRight,
   faArrowUp,
   faComment,
+  faEdit,
+  faTrash,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { Topic } from '../../core/models/topic';
@@ -25,6 +27,8 @@ export class TopicBlockComponent implements OnInit {
   faComment = faComment;
   faUser = faUser;
   faRight = faArrowRight;
+  faEdit = faEdit;
+  faDelete = faTrash;
 
   showInput = false;
 
@@ -32,14 +36,17 @@ export class TopicBlockComponent implements OnInit {
   isUpvoted: boolean = false;
   isDownvoted: boolean = false;
   commentsCount: number;
+  confirmDelete: boolean = false;
+
   @Input() topic: Topic;
   @Input() showCommentButton: boolean;
   @Output() addComment = new EventEmitter();
+  @Output() deleteTopic = new EventEmitter();
 
   constructor(
     private userService: UserService,
     private topicService: TopicService,
-    private router: Router,
+    public router: Router,
     private upvoteService: UpvoteService
   ) {}
 
@@ -88,5 +95,11 @@ export class TopicBlockComponent implements OnInit {
       .subscribe((res) => {
         this.topic.upvotes = res.upvotes;
       });
+  }
+
+  onDeleteClick() {
+    if (this.userService.currentUserId == this.topic.user_id?._id) {
+      this.deleteTopic.emit(this.topic._id);
+    }
   }
 }

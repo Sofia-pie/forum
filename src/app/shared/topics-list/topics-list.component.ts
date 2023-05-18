@@ -11,16 +11,23 @@ import { CommentsService } from '../../core/services/comments.service';
   styleUrls: ['./topics-list.component.css'],
 })
 export class TopicsListComponent implements OnInit {
-  @Input() topics: any;
-  
-  constructor(private topicService: TopicService, private commentsService: CommentsService) {}
+  @Input() topics: Topic[];
 
-  ngOnInit(): void {
-   
+  constructor(
+    private topicService: TopicService,
+    private commentsService: CommentsService
+  ) {}
+
+  ngOnInit(): void {}
+  addComment({ id, comment }: { id: string; comment: string }) {
+    this.commentsService
+      .createComment(id, comment)
+      .subscribe((res) => console.log(res));
   }
-  addComment({id, comment}:{id:string, comment:string}){
-    this.commentsService.createComment(id,comment).subscribe((res)=>console.log(res));
-       
+
+  deleteTopic(id: string) {
+    this.topicService.deleteTopic(id).subscribe((res) => {
+      this.topics = this.topics.filter((topic) => topic._id !== id);
+    });
   }
-  
 }

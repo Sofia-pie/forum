@@ -42,9 +42,13 @@ const routes: Routes = [
       },
     ],
   },
-
   {
     path: 'new-topic',
+    canActivate: [AuthGuardService],
+    component: TopicFormComponent,
+  },
+  {
+    path: 'new-topic/:id',
     canActivate: [AuthGuardService],
     component: TopicFormComponent,
   },

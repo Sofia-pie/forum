@@ -1,4 +1,4 @@
-
 <div class="questions-list scrollable">
-	<app-topic-block *ngFor="let t of topics" [topic]="t" [showCommentButton]="true" (addComment)="addComment($event)"></app-topic-block>
+	<app-topic-block *ngFor="let t of topics" [topic]="t" [showCommentButton]="true" (addComment)="addComment($event)"
+		(deleteTopic)="deleteTopic($event)"></app-topic-block>
 </div>
