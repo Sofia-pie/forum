@@ -4,7 +4,7 @@ import { UserService } from '../../core/services/user.service';
 
 import { Location } from '@angular/common';
 import { User } from '../../core/models/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-edit-user',
@@ -15,12 +15,15 @@ export class EditUserComponent implements OnInit {
   userForm: FormGroup;
   preview: string;
   user: User;
+  showConfirm: boolean = false;
+  message: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,9 +42,12 @@ export class EditUserComponent implements OnInit {
           return this.userService.getUser(userId);
         })
       )
-      .subscribe((res) => {
-        this.user = res;
-        this.userForm.patchValue(res);
+      .subscribe({
+        next: (res) => {
+          this.user = res;
+          this.userForm.patchValue(res);
+        },
+        error: (err) => (this.message = err.message),
       });
   }
 
@@ -72,5 +78,13 @@ export class EditUserComponent implements OnInit {
     this.userService
       .editUserInfo(this.userForm.value)
       .subscribe(() => this.location.back());
+  }
+
+  onDeleteClick() {
+    this.showConfirm = true;
+  }
+
+  deleteUser() {
+    this.userService.deleteCurrentUser();
   }
 }

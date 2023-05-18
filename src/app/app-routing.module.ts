@@ -4,6 +4,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
+import { StatusMessageComponent } from './core/components/status-message/status-message.component';
 
 const routes: Routes = [
   // {
@@ -31,6 +32,7 @@ const routes: Routes = [
     path: 'sign-up',
     component: RegisterComponent,
   },
+  { path: '**', component: StatusMessageComponent },
 ];
 
 @NgModule({

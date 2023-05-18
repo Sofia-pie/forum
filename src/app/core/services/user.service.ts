@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, subscribeOn, take, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { environment } from '../../../environments/environment';
@@ -32,7 +32,7 @@ export class UserService {
     return this.http
       .post<any>(`${this.baseUrl}/auth/login`, { email, password })
       .pipe(
-        tap((res: any) => {
+        tap((res) => {
           localStorage.setItem('access_token', res.jwt_token);
         })
       );
@@ -49,6 +49,15 @@ export class UserService {
     return this.http.put<User>(`${this.baseUrl}/user`, userData);
   }
 
+  deleteCurrentUser() {
+    return this.http
+      .delete(`${this.baseUrl}/user`)
+      .pipe(take(1))
+      .subscribe((res) => {
+        localStorage.removeItem('access_token');
+        this.router.navigate(['sign-in']);
+      });
+  }
   get token(): string | undefined {
     if (localStorage.getItem('access_token')) {
       return localStorage.getItem('access_token')!;

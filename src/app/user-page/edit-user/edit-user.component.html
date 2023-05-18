@@ -1,3 +1,4 @@
+<p *ngIf="message" class="info-message">{{message}}</p>
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 	<div>
 		<p>Ім'я</p>
@@ -26,9 +27,16 @@
 	</div>
 
 
-	<div>
-		<button type="submit" [disabled]="userForm.invalid" class="submit-button">Підтвердити зміни
-		</button>
-	</div>
+
 </form>
-<div class="img-container"></div>
+<div class="buttons">
+	<button type="submit" [disabled]="userForm.invalid" class="submit-button">Підтвердити зміни
+	</button>
+
+	<button class="delete-button" (click)="onDeleteClick()"> Видалити профіль </button>
+	<div *ngIf="showConfirm">
+		<p>Видалити профіль?</p>
+		<span style="margin-right: 1rem; cursor: pointer;" (click)="deleteUser()">Так</span>
+		<span style="cursor: pointer;" (click)="showConfirm=false">Ні</span>
+	</div>
+</div>

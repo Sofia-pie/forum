@@ -21,6 +21,8 @@ export class UserPageComponent implements OnInit {
   comments: Comment[];
   currentUserId: string;
 
+  message: string;
+
   faEdit = faEdit;
 
   constructor(
@@ -31,9 +33,12 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.userService.getUser(id!).subscribe((res) => {
-      this.user = res;
-      this.currentUserId = this.userService.currentUserId;
+    this.userService.getUser(id!).subscribe({
+      next: (res) => {
+        this.user = res;
+        this.currentUserId = this.userService.currentUserId;
+      },
+      error: (err) => (this.message = err.message),
     });
   }
 

@@ -20,12 +20,13 @@
 		<div class="tag-input">
 			<input type="text" [(ngModel)]="newTag" [ngModelOptions]="{standalone: true}" placeholder="Add new tag"
 				class="tag-button tag-field" (input)="onInputChange()">
-				<ul *ngIf="showDropdown" class="dropdown">
-					<li *ngFor="let suggestion of filteredSuggestions" (click)="onSelectSuggestion(suggestion)">{{suggestion}}</li>
-				  </ul>
+			<ul *ngIf="showDropdown" class="dropdown">
+				<li *ngFor="let suggestion of filteredSuggestions" (click)="onSelectSuggestion(suggestion)">
+					{{suggestion}}</li>
+			</ul>
 			<button type="button" (click)="addTag()" class="tag-field">Add Tag</button>
 		</div>
 	</div>
 	<button type="submit" [disabled]="topicForm.invalid" class="submit-button">Post</button>
-	<button class="cancel-button" [routerLink]="['/']">Cancel</button>
+	<button class="cancel-button" [routerLink]="['/main']">Cancel</button>
 </form>

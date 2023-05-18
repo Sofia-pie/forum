@@ -1,11 +1,16 @@
 <div class="sidemenu">
+	<div class="sidemenu-links"><a (click)="goBack()" class="sidemenu-text" *ngIf=" this.router.url !=='/main'"><fa-icon
+				[icon]="faArrow"></fa-icon>Назад</a>
+		<a href="" class="sidemenu-text"><fa-icon [icon]="faHome"></fa-icon>Головна</a>
+	</div>
+
 	<div class="personal-menu">
 		<h5 class="sidemenu-title sidemenu-text">
 			Personal navigator
 		</h5>
 		<div class="sidemenu-links">
-			<a href="" class="sidemenu-text"><fa-icon [icon]="faPersonalQuestion"></fa-icon>My Questions</a>
-			<a href="" class="sidemenu-text"><fa-icon [icon]="faAnswers"></fa-icon>My Answers</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faPersonalQuestion"></fa-icon>Мої питання</a>
+			<a href="" class="sidemenu-text"><fa-icon [icon]="faAnswers"></fa-icon>Мої відповіді</a>
 		</div>
 	</div>
 </div>
@@ -13,6 +18,6 @@
 	<router-outlet></router-outlet>
 </div>
 <div class="right-side">
-	<button class="add-topic-button" [routerLink]="['/new-topic']"><fa-icon [icon]="faAdd"></fa-icon>Start a New
+	<button class="add-topic-button" [routerLink]="['./new-topic']"><fa-icon [icon]="faAdd"></fa-icon>Start a New
 		Topic</button>
 </div>

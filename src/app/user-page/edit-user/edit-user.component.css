@@ -3,14 +3,21 @@
 
   box-shadow: 0px 0px 70px -19px rgb(185, 185, 185);
   border-radius: 30px;
-  max-height: 100%;
-
   padding: 1rem;
+  max-height: 95%;
+  overflow-y: auto;
+  display: block;
+}
+
+.info-message {
+  font-size: 2rem;
+  border: 1px solid #1795a8;
 }
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 0.5fr);
+  row-gap: 1rem;
 }
 form input {
   background: #e3e3e3;
@@ -43,7 +50,23 @@ form textarea {
   color: #fff;
   border: none;
   margin-top: 2rem;
-  padding: 1rem 5rem;
+  padding: 1rem 3rem;
   cursor: pointer;
   height: min-content;
+}
+
+.delete-button {
+  background: #a81717;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  height: min-content;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

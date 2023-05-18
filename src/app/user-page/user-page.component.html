@@ -1,20 +1,23 @@
-<div class="user-info">
-	<div class="profile-picture"><img [src]="user.profilePicture"></div>
-	<div class="info">
-		<h5 class="name">{{user.firstName}} {{user.lastName}}</h5>
-		<p class="username">{{user.username}}</p>
-		<p class="bio">{{user.bio}}</p>
-		<div class="controlls">
-			<fa-icon [icon]="faEdit" class="edit" *ngIf="user._id === currentUserId"
-				[routerLink]="['./edit-user']"></fa-icon>
-		</div>
+<p *ngIf="message" class="error-message">{{message}}</p>
+<ng-container *ngIf="user">
+	<div class="user-info">
+		<div class="profile-picture"><img [src]="user.profilePicture"></div>
+		<div class="info">
+			<h5 class="name">{{user.firstName}} {{user.lastName}}</h5>
+			<p class="username">{{user.username}}</p>
+			<p class="bio">{{user.bio}}</p>
+			<div class="controlls">
+				<fa-icon [icon]="faEdit" class="edit" *ngIf="user._id === currentUserId"
+					[routerLink]="['./edit-user']"></fa-icon>
+			</div>
 
+		</div>
 	</div>
-</div>
-<div class="user-content">
-	<button class="filter-item" [routerLink]="['./topics']" routerLinkActive="active">Обговорення</button>
-	<button class="filter-item" [routerLink]="['./comments']" routerLinkActive="active">Коментарі</button>
-</div>
-<div class="container">
-	<router-outlet></router-outlet>
-</div>
+	<div class="user-content">
+		<button class="filter-item" [routerLink]="['./topics']" routerLinkActive="active">Обговорення</button>
+		<button class="filter-item" [routerLink]="['./comments']" routerLinkActive="active">Коментарі</button>
+	</div>
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</ng-container>
