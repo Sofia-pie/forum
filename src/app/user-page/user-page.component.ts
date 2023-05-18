@@ -36,7 +36,7 @@ export class UserPageComponent implements OnInit {
     this.userService.getUser(id!).subscribe({
       next: (res) => {
         this.user = res;
-        this.currentUserId = this.userService.currentUserId;
+        this.currentUserId = this.userService.currentUserId!;
       },
       error: (err) => (this.message = err.message),
     });

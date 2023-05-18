@@ -23,14 +23,13 @@ export class HeaderComponent implements OnInit {
   search = '';
   user: User | null;
 
-  profilePicture: string;
   constructor(public router: Router, public userService: UserService) {}
 
   ngOnInit(): void {
     if (this.userService.token) {
       this.userService.getCurrentUser().subscribe((res) => {
         this.user = res;
-        this.profilePicture = res.profilePicture;
+
         console.log(res);
       });
     }

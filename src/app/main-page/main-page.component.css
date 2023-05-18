@@ -1,5 +1,5 @@
 :host {
-  flex-basis: 1 1 auto;
+  flex: 1 1 auto;
   display: grid;
   grid-template-columns: minmax(0, 250px) auto minmax(0, 300px);
   grid-template-rows: 100%;

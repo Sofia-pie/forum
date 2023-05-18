@@ -100,10 +100,13 @@ export class UserService {
     }
   }
 
-  get currentUserId(): string {
-    const jwtToken = this.token!;
-    const decodedToken = this.jwtHelper.decodeToken(jwtToken);
-    return decodedToken.user_id;
+  get currentUserId(): string | undefined {
+    if (this.token) {
+      const jwtToken = this.token;
+      const decodedToken = this.jwtHelper.decodeToken(jwtToken);
+      return decodedToken.user_id;
+    }
+    return;
   }
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');

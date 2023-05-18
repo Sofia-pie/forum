@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
+  message: string;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -29,10 +29,13 @@ export class LoginComponent implements OnInit {
     }
     this.userService
       .loginUser(this.loginForm.value.email, this.loginForm.value.password)
-      .subscribe(() => {
-        this.router.navigate(['/main']).then(() => {
-          window.location.reload();
-        });
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/main']).then(() => {
+            window.location.reload();
+          });
+        },
+        error: (err) => (this.message = 'Помилка'),
       });
   }
 }

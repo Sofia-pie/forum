@@ -1,10 +1,10 @@
 <ng-container *ngIf="comment.user_id">
-	<div class="comment-user" [routerLink]="['/user',comment.user_id._id]">
-		<img [src]="profilePicture" alt="">
+	<div class="comment-user" [routerLink]="['/main/user',comment.user_id._id]">
+		<img [src]="profilePicture || '/assets/images/user.png'" alt="">
 		<h5 class="username">{{comment.user_id.username}}</h5>
 	</div>
 </ng-container>
-<p class="comment-text" [routerLink]="['/topic',comment.topic_id]">{{comment.text}}</p>
+<p class="comment-text" [routerLink]="['/main/topic',comment.topic_id]">{{comment.text}}</p>
 
 <div class="upvotes">
 	<fa-icon [icon]="faUp" (click)="onUpvoteClick()" [ngClass]="{'is-upvoted': isUpvoted}"></fa-icon>

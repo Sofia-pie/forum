@@ -7,6 +7,8 @@ import { TopicFormComponent } from '../topic-form/topic-form.component';
 import { TopicPageComponent } from '../topic-page/topic-page/topic-page.component';
 import { AuthGuardService } from '../core/guards/auth-guard.service';
 import { TopicsMainComponent } from './topics-main/topics-main.component';
+import { MyTopicsComponent } from './my-topics/my-topics.component';
+import { MyCommentsComponent } from './my-comments/my-comments.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,16 @@ const routes: Routes = [
         path: 'user/:id',
         loadChildren: () =>
           import('../user-page/user-page.module').then((m) => m.UserPageModule),
+      },
+      {
+        path: 'my-topics',
+        component: MyTopicsComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: 'my-comments',
+        component: MyCommentsComponent,
+        canActivate: [AuthGuardService],
       },
       {
         path: '',

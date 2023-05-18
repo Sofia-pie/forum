@@ -12,9 +12,11 @@ import { FormsModule } from '@angular/forms';
 
 import { TopicPageModule } from '../topic-page/topic-page.module';
 import { TopicsMainComponent } from './topics-main/topics-main.component';
+import { MyTopicsComponent } from './my-topics/my-topics.component';
+import { MyCommentsComponent } from './my-comments/my-comments.component';
 
 @NgModule({
-  declarations: [MainPageComponent, TopicsMainComponent],
+  declarations: [MainPageComponent, TopicsMainComponent, MyTopicsComponent, MyCommentsComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

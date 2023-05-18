@@ -1,0 +1,34 @@
+:host {
+  height: 80%;
+  display: block;
+}
+
+.comments-container {
+  max-height: 80%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable {
+  overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #989898;
+}
