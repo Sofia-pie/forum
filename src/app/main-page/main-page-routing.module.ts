@@ -40,6 +40,11 @@ const routes: Routes = [
         data: { category: 'tag' },
       },
       {
+        path: 'search',
+        component: TopicsMainComponent,
+        data: { category: 'search' },
+      },
+      {
         path: '',
         component: TopicsMainComponent,
         pathMatch: 'full',

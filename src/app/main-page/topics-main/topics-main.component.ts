@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TopicService } from '../../core/services/topic.service';
 import { Topic } from '../../core/models/topic';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topics-main',
@@ -12,6 +13,7 @@ export class TopicsMainComponent implements OnInit {
   topics: Topic[];
   sort: string;
   type: string;
+  query: string;
 
   constructor(
     private topicService: TopicService,
@@ -48,6 +50,27 @@ export class TopicsMainComponent implements OnInit {
           console.log(res);
         });
         break;
+      case 'search':
+        this.route.params
+          .pipe(
+            switchMap((params) => {
+              this.query = params['query'];
+              return this.topicService.getTopics(); // Assuming getTopics() returns an observable of topics
+            })
+          )
+          .subscribe((topics) => {
+            const results = [];
+            for (const topic of topics) {
+              if (
+                topic.title.toLowerCase().includes(this.query.toLowerCase())
+              ) {
+                results.push(topic);
+              }
+            }
+            this.topics = results;
+          });
+        break;
+
       default:
         this.topicService.getTopics().subscribe((res) => (this.topics = res));
         break;

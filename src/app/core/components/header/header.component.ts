@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   faTriangle = faCaretDown;
   faLogo = faCommentDots;
   showMenu = false;
-  search = '';
+  query = '';
   user: User | null;
 
   constructor(public router: Router, public userService: UserService) {}
@@ -40,8 +40,17 @@ export class HeaderComponent implements OnInit {
     this.showMenu = !this.showMenu;
   }
 
-  onEnter($event: any) {
-    console.log($event.target.value);
+  onEnter(event: any) {
+    console.log(event.target.value);
+    this.search(event.target.value);
+  }
+
+  search(query: string) {
+    if (query === '') {
+      this.router.navigate(['/main']);
+      return;
+    }
+    this.router.navigate(['/main/search', { query: query }]);
   }
 
   onLogout() {
