@@ -35,6 +35,11 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
+        path: 'tags/:id',
+        component: TopicsMainComponent,
+        data: { category: 'tag' },
+      },
+      {
         path: '',
         component: TopicsMainComponent,
         pathMatch: 'full',

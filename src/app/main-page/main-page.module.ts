@@ -16,7 +16,12 @@ import { MyTopicsComponent } from './my-topics/my-topics.component';
 import { MyCommentsComponent } from './my-comments/my-comments.component';
 
 @NgModule({
-  declarations: [MainPageComponent, TopicsMainComponent, MyTopicsComponent, MyCommentsComponent],
+  declarations: [
+    MainPageComponent,
+    TopicsMainComponent,
+    MyTopicsComponent,
+    MyCommentsComponent,
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,
@@ -26,7 +31,6 @@ import { MyCommentsComponent } from './my-comments/my-comments.component';
     RouterModule,
     FormsModule,
     TopicFormModule,
-  
   ],
   exports: [MainPageComponent],
 })
