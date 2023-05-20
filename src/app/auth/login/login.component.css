@@ -32,7 +32,7 @@ form {
   align-items: center;
 }
 
-form input {
+.input {
   background: #e3e3e3;
   border-radius: 7.5px;
   border: none;

@@ -47,6 +47,11 @@ fa-icon {
   padding: 0.5rem;
 }
 
+.comments-count {
+  text-align: right;
+  padding-right: 2rem;
+}
+
 .comment-input {
   width: 90%;
   height: 100%;

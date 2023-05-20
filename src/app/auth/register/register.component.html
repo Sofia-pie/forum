@@ -1,26 +1,28 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 	<div>
-		<p>Ім'я</p>
-		<input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': isInvalid('firstName') }">
+		<p>Ім'я <span class="required-field">*</span></p>
+		<input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': isInvalid('firstName') }"
+			class="input">
 
 	</div>
 	<div>
 		<p>Прізвище</p>
-		<input type="text" formControlName="lastName">
+		<input type="text" formControlName="lastName" class="input">
 	</div>
 	<div>
-		<p>Ім'я користувача</p>
-		<input type="text" formControlName="username" [ngClass]="{ 'is-invalid': isInvalid('username') }">
+		<p>Ім'я користувача <span class="required-field">*</span></p>
+		<input type="text" formControlName="username" [ngClass]="{ 'is-invalid': isInvalid('username') }" class="input">
 
 	</div>
 	<div>
-		<p>Email</p>
-		<input type="email" formControlName="email" [ngClass]="{ 'is-invalid': isInvalid('email') }">
+		<p>Email <span class="required-field">*</span></p>
+		<input type="email" formControlName="email" [ngClass]="{ 'is-invalid': isInvalid('email') }" class="input">
 
 	</div>
 	<div>
-		<p>Пароль</p>
-		<input type="password" formControlName="password" [ngClass]="{ 'is-invalid': isInvalid('password') }">
+		<p>Пароль <span class="required-field">*</span></p>
+		<input type="password" formControlName="password" [ngClass]="{ 'is-invalid': isInvalid('password') }"
+			class="input">
 
 	</div>
 	<div>
@@ -29,14 +31,16 @@
 	</div>
 	<div>
 		<p>Фото</p>
-		<input type="file" accept="image/png, image/jpeg" (change)="uploadFile($event)">
+		<input type="file" accept="image/png, image/jpeg" (change)="uploadFile($event)" class="input">
 		<div class="preview" *ngIf="preview && preview !== null">
 			<img [src]="preview" [alt]="">
 		</div>
 	</div>
 
 
-	<button type="submit" [disabled]="registerForm.invalid" class="submit-button">Register
+	<button type="submit" [disabled]="registerForm.invalid" class="submit-button">Підвердити
 	</button>
+
 </form>
+<app-error-message *ngIf="errorMessage" [message]="errorMessage" (closed)="errorMessage=''"></app-error-message>
 <div class="img-container"></div>

@@ -1,10 +1,23 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { BehaviorSubject, Observable, of, subscribeOn, take, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  of,
+  subscribeOn,
+  take,
+  tap,
+  throwError,
+} from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { environment } from '../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Topic } from '../models/topic';
 import { Comment } from '../models/comments';
@@ -25,7 +38,16 @@ export class UserService {
     for (let i in data) {
       formData.append(i, data[i]);
     }
-    return this.http.post(`${this.baseUrl}/auth/register`, formData);
+    return this.http.post(`${this.baseUrl}/auth/register`, formData).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          return throwError(
+            () => 'Користувач із цією електронною адресою вже існує.'
+          );
+        }
+        return throwError(() => 'Помилка при створенні користувача.');
+      })
+    );
   }
 
   loginUser(email: string, password: string): Observable<any> {
@@ -34,6 +56,12 @@ export class UserService {
       .pipe(
         tap((res) => {
           localStorage.setItem('access_token', res.jwt_token);
+        }),
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 400) {
+            return throwError(() => 'Неправильна електронна адреса або пароль');
+          }
+          return throwError(() => 'Помилка');
         })
       );
   }
@@ -46,7 +74,11 @@ export class UserService {
       userData.append(i, data[i]);
     }
 
-    return this.http.put<User>(`${this.baseUrl}/user`, userData);
+    return this.http.put<User>(`${this.baseUrl}/user`, userData).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => 'Помилка');
+      })
+    );
   }
 
   deleteCurrentUser() {

@@ -30,3 +30,4 @@
 	<button type="submit" [disabled]="topicForm.invalid" class="submit-button">Post</button>
 	<button class="cancel-button" [routerLink]="['/main']">Cancel</button>
 </form>
+<app-error-message [message]="errorMessage" (closed)="errorMessage=''" *ngIf="errorMessage"></app-error-message>

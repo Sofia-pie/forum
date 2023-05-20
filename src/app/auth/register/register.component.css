@@ -7,6 +7,10 @@
   overflow: auto;
 }
 
+.required-field {
+  color: red;
+}
+
 .img-container {
   flex-basis: 50%;
   margin-block: 2rem;
@@ -24,7 +28,7 @@ form {
   gap: 20px;
 }
 
-form input {
+.input {
   background: #e3e3e3;
   border-radius: 7.5px;
   border: none;

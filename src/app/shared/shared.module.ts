@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { TopicsListComponent } from './topics-list/topics-list.component';
 import { CommentComponent } from './comment/comment.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommentComponent } from './comment/comment.component';
     UploadImageComponent,
     TopicsListComponent,
     CommentComponent,
+    ErrorMessageComponent,
   ],
   imports: [CommonModule, FontAwesomeModule, FormsModule, RouterLink],
   exports: [
@@ -22,6 +24,7 @@ import { CommentComponent } from './comment/comment.component';
     TopicBlockComponent,
     UploadImageComponent,
     CommentComponent,
+    ErrorMessageComponent,
   ],
 })
 export class SharedModule {}

@@ -11,7 +11,9 @@ input {
   padding: 1rem 1.8rem;
   width: 100%;
 }
-
+textarea {
+  width: 100%;
+}
 .tags {
   display: flex;
   align-items: center;
@@ -20,7 +22,7 @@ input {
 
 .tag-button {
   display: inline-block;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   font-weight: 400;
   text-align: center;
   cursor: pointer;
@@ -41,7 +43,7 @@ input {
   gap: 2rem;
 }
 
-.dropdown{
+.dropdown {
   position: absolute;
   background-color: white;
   height: fit-content;
@@ -51,11 +53,12 @@ input {
   text-align: center;
   list-style: none;
   padding: 0.3rem;
- 
+  max-height: 200px;
+  overflow-y: auto;
 }
-.dropdown li{
-padding-block: .4rem;
-border-bottom: 1px solid #adadad;
+.dropdown li {
+  padding-block: 0.4rem;
+  border-bottom: 1px solid #adadad;
 }
 
 .tag-button:hover {
@@ -67,7 +70,6 @@ border-bottom: 1px solid #adadad;
   border: 1px solid #777777;
   border-radius: 35px;
   width: max-content;
-
 }
 
 .tag-input button {

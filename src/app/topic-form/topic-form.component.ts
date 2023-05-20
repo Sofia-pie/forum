@@ -20,6 +20,7 @@ export class TopicFormComponent implements OnInit {
   tagsList: string[] = [];
   showDropdown = false;
   filteredSuggestions: string[] = [];
+  errorMessage: string;
 
   constructor(
     private fb: FormBuilder,
@@ -90,17 +91,18 @@ export class TopicFormComponent implements OnInit {
       content: formValue.content,
       tags: selectedTags,
     };
-    console.log(topic);
+
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.topicService.editTopic(id, topic).subscribe((res) => {
-        console.log(topic);
         this.router.navigate(['/main']);
       });
     } else {
-      this.topicService.addTopic(topic).subscribe((res) => {
-        console.log(topic);
-        this.router.navigate(['/main']);
+      this.topicService.addTopic(topic).subscribe({
+        next: (res) => {
+          this.router.navigate(['/main']);
+        },
+        error: (err) => (this.errorMessage = err),
       });
     }
   }

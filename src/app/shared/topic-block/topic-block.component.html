@@ -29,9 +29,8 @@
 				</div>
 			</div>
 		</ng-container>
-
-		<button class="comment-button" (click)="onShowCommentInputClick()"><span>{{commentsCount}}</span><fa-icon
-				[icon]="faComment"></fa-icon></button>
+		<button class="comment-button" (click)="onShowCommentInputClick()"
+			*ngIf="showCommentButton"><span>{{commentsCount}}</span><fa-icon [icon]="faComment"></fa-icon></button>
 	</div>
 
 </div>

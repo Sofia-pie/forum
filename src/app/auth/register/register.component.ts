@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   preview: string;
-
+  errorMessage: string;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -55,6 +55,9 @@ export class RegisterComponent implements OnInit {
     }
     this.userService
       .registerUser(this.registerForm.value)
-      .subscribe(() => this.router.navigate(['/sign-in']));
+      .subscribe({
+        next: () => this.router.navigate(['/sign-in']),
+        error: (err) => (this.errorMessage = err),
+      });
   }
 }

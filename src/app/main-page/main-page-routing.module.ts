@@ -4,11 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page.component';
 import { TopicFormComponent } from '../topic-form/topic-form.component';
 
-import { TopicPageComponent } from '../topic-page/topic-page/topic-page.component';
 import { AuthGuardService } from '../core/guards/auth-guard.service';
 import { TopicsMainComponent } from './topics-main/topics-main.component';
 import { MyTopicsComponent } from './my-topics/my-topics.component';
 import { MyCommentsComponent } from './my-comments/my-comments.component';
+import { TopicPageComponent } from '../topic-page/topic-page.component';
 
 const routes: Routes = [
   {

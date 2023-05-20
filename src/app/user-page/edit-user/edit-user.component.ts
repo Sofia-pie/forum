@@ -16,7 +16,7 @@ export class EditUserComponent implements OnInit {
   preview: string;
   user: User;
   showConfirm: boolean = false;
-  message: string;
+  errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +28,7 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      firstName: [''],
+      firstName: ['', Validators.required],
       lastName: [''],
       username: ['', Validators.required],
       bio: ['', Validators.maxLength(400)],
@@ -47,7 +47,7 @@ export class EditUserComponent implements OnInit {
           this.user = res;
           this.userForm.patchValue(res);
         },
-        error: (err) => (this.message = err.message),
+        error: (err) => (this.errorMessage = err.message),
       });
   }
 
@@ -75,9 +75,10 @@ export class EditUserComponent implements OnInit {
       return;
     }
 
-    this.userService
-      .editUserInfo(this.userForm.value)
-      .subscribe(() => this.location.back());
+    this.userService.editUserInfo(this.userForm.value).subscribe({
+      next: () => this.location.back(),
+      error: (err) => (this.errorMessage = err),
+    });
   }
 
   onDeleteClick() {

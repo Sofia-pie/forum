@@ -1,22 +1,22 @@
-<p *ngIf="message" class="info-message">{{message}}</p>
+<app-error-message [message]="errorMessage" *ngIf="errorMessage"></app-error-message>
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 	<div>
 		<p>Ім'я</p>
-		<input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': isInvalid('firstName') }">
-
+		<input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': isInvalid('firstName') }"
+			class="input">
 	</div>
 	<div>
 		<p>Прізвище</p>
-		<input type="text" formControlName="lastName">
+		<input type="text" formControlName="lastName" class="input">
 	</div>
 	<div>
 		<p>Ім'я користувача</p>
-		<input type="text" formControlName="username" [ngClass]="{ 'is-invalid': isInvalid('username') }">
+		<input type="text" formControlName="username" [ngClass]="{ 'is-invalid': isInvalid('username') }" class="input">
 
 	</div>
 	<div>
 		<p>Про себе</p>
-		<textarea cols="25" rows="10" formControlName="bio"></textarea>
+		<textarea cols="25" rows="10" formControlName="bio" class="input"></textarea>
 	</div>
 	<div>
 		<p>Фото</p>

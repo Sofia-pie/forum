@@ -2,7 +2,7 @@
 	<div class="topic">
 		<ng-container *ngIf="topic"><app-topic-block [topic]="topic"
 				[showCommentButton]="false"></app-topic-block></ng-container>
-
+		<div class="comments-count"><fa-icon [icon]="faComment"></fa-icon><span> {{commentsCount}}</span></div>
 	</div>
 
 	<div class="comments-container">

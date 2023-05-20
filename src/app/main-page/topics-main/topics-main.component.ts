@@ -44,11 +44,17 @@ export class TopicsMainComponent implements OnInit {
   showTopics(type: string) {
     switch (type) {
       case 'tag':
-        const id = this.route.snapshot.paramMap.get('id');
-        this.topicService.getTopicsByTag(id!).subscribe((res) => {
-          this.topics = res;
-          console.log(res);
-        });
+        this.route.params
+          .pipe(
+            switchMap((params) => {
+              const tagId = params['id'];
+              return this.topicService.getTopicsByTag(tagId);
+            })
+          )
+          .subscribe((res) => {
+            this.topics = res;
+          });
+
         break;
       case 'search':
         this.route.params
@@ -65,6 +71,11 @@ export class TopicsMainComponent implements OnInit {
                 topic.title.toLowerCase().includes(this.query.toLowerCase())
               ) {
                 results.push(topic);
+              }
+              for (const tag of topic.tags) {
+                if (tag.name.toLowerCase().includes(this.query.toLowerCase())) {
+                  results.push(topic);
+                }
               }
             }
             this.topics = results;
