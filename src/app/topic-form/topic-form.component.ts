@@ -21,6 +21,7 @@ export class TopicFormComponent implements OnInit {
   showDropdown = false;
   filteredSuggestions: string[] = [];
   errorMessage: string;
+  buttonText = 'Створити тему';
 
   constructor(
     private fb: FormBuilder,
@@ -52,6 +53,7 @@ export class TopicFormComponent implements OnInit {
             this.tags.push(this.fb.control(tagName));
             this.tagsList.push(tagName);
           });
+          this.buttonText = 'Підтвердити зміни';
         }
       });
     }

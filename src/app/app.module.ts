@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/authconfig.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuardService } from './core/guards/auth-guard.service';
+import { InfoModule } from './info/info.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,9 +23,10 @@ import { AuthGuardService } from './core/guards/auth-guard.service';
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
+    InfoModule,
     FontAwesomeModule,
     HttpClientModule,
- 
+
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('jwt_token'),

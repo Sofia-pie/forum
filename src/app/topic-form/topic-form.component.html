@@ -1,14 +1,14 @@
 <form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 	<div class="form-control">
-		<p>Title:</p>
+		<p>Заголовок:</p>
 		<input type="text" formControlName="title" required>
 	</div>
 	<div class="form-control">
-		<p>Description:</p>
+		<p>Опис:</p>
 		<textarea formControlName="content" rows="3"></textarea>
 	</div>
 	<div formArrayName="tags" class="form-control tags">
-		<label>Tags:</label>
+		<label>Теги:</label>
 		<div *ngFor="let tag of tags.controls; let i=index" class="tag">
 			<label class="tag-button" [ngClass]="{'selected': tag.value}">
 				<input type="checkbox" [formControlName]="i" style="display:none;">
@@ -18,16 +18,17 @@
 			</label>
 		</div>
 		<div class="tag-input">
-			<input type="text" [(ngModel)]="newTag" [ngModelOptions]="{standalone: true}" placeholder="Add new tag"
-				class="tag-button tag-field" (input)="onInputChange()">
+			<input type="text" [(ngModel)]="newTag" [ngModelOptions]="{standalone: true}" placeholder="Додати тег"
+				class="tag-button tag-field" (input)="onInputChange()" (blur)="showDropdown=false">
 			<ul *ngIf="showDropdown" class="dropdown">
 				<li *ngFor="let suggestion of filteredSuggestions" (click)="onSelectSuggestion(suggestion)">
 					{{suggestion}}</li>
 			</ul>
-			<button type="button" (click)="addTag()" class="tag-field">Add Tag</button>
+			<button type="button" (click)="addTag()" class="tag-field">Додати тег</button>
 		</div>
 	</div>
-	<button type="submit" [disabled]="topicForm.invalid" class="submit-button">Post</button>
-	<button class="cancel-button" [routerLink]="['/main']">Cancel</button>
+	<button type="submit" [disabled]="topicForm.invalid" class="submit-button">{{buttonText}}</button>
+
+	<button class="cancel-button" [routerLink]="['/main']">Назад</button>
 </form>
 <app-error-message [message]="errorMessage" (closed)="errorMessage=''" *ngIf="errorMessage"></app-error-message>

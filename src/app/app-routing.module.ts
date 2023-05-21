@@ -5,14 +5,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { TopicFormComponent } from './topic-form/topic-form.component';
 import { StatusMessageComponent } from './core/components/status-message/status-message.component';
+import { PrivacyPolicyComponent } from './info/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./main-page/main-page.module').then((m) => m.MainPageModule),
-  //   pathMatch: 'full',
-  // },
   {
     path: '',
     pathMatch: 'full',
@@ -32,6 +27,8 @@ const routes: Routes = [
     path: 'sign-up',
     component: RegisterComponent,
   },
+  { path: 'privacy', component: PrivacyPolicyComponent },
+
   { path: '**', component: StatusMessageComponent },
 ];
 

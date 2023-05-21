@@ -1,13 +1,11 @@
 <footer *ngIf="this.router.url !='/sign-in'&& this.router.url !='/sign-up'">
 	<div class="column">
-		<a href="">Help</a>
-		<a href="">Topics</a>
-		<a href="">Hot Topics</a>
+		<a href="">Допомога</a>
+		<a href="">Теми</a>
 	</div>
 	<div class="column">
-		<a href="">About</a>
-		<a href="">Terms</a>
-		<a href="">Privacy Policy</a>
+		<a href="">Про нас</a>
+		<a [routerLink]="['/privacy']">Політика конфіденційності</a>
 	</div>
 	<p>© 2023 Forum </p>
 </footer>
